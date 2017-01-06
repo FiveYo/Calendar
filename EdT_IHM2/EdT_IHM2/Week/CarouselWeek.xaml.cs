@@ -8,11 +8,17 @@ using Xamarin.Forms;
 
 namespace EdT_IHM2
 {
-    public partial class CarouselWeek : CarouselPage
+    public partial class CarouselWeek : ContentView
     {
+        public int week
+        {
+            get;
+            set;
+        }
         public CarouselWeek()
         {
             InitializeComponent();
+            week = 50;
         }
     }
 }

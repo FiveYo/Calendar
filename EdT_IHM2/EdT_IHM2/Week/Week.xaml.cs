@@ -13,6 +13,7 @@ namespace EdT_IHM2
         public Week()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
         }
     }
 }

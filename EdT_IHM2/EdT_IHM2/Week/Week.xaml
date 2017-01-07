@@ -5,6 +5,6 @@
              x:Class="EdT_IHM2.Week">
   <StackLayout>
     <local:Header/>
-    <local:CarouselWeek/>
+        <!--<local:CarouselWeek/>-->
   </StackLayout>
 </ContentPage>

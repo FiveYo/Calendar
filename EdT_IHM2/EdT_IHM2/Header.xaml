@@ -6,6 +6,8 @@
                 <ColumnDefinition Width="7*"/>
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
+            <!--<ListView BindingContext="Test"/>-->
+            <Picker Title="Temps"/>
             <Label Text="Ici dropdown avec jour et semaine" Grid.Column="0"/>
             <Label Text="Ici bouton supprimer et trois petit points" Grid.Column="1"/>
         </Grid>

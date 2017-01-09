@@ -13,8 +13,9 @@ namespace EdT_IHM2
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new EdT_IHM2.Login());
-            
+            //MainPage = new NavigationPage(new EdT_IHM2.Login());
+            MainPage = new NavigationPage(new EdT_IHM2.newEvent());
+
         }
 
         protected override void OnStart()

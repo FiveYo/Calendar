@@ -17,7 +17,7 @@ namespace EdT_IHM2
 
         async internal void GoToWeek(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Week());
+            await Navigation.PushAsync(new WeekView());
         }
     }
 }

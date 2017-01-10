@@ -13,43 +13,29 @@ namespace EdT_IHM2
 {
     public class DayLayout : AbsoluteLayout
     {
+
+        public static readonly BindableProperty SubjectsProperty =
+            BindableProperty.Create("Subjects", typeof(List<Subject>), typeof(DayView), null, propertyChanged: SubjectChanged);
+        private static void SubjectChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            DayLayout day = bindable as DayLayout;
+            day.LessonChanged?.Invoke(null, null);
+        }
+
+
         const int HSTART = 0;
         const int HEND = 24;
         const int HEIGHT = 60;
         List<Subject> cours;
         List<BoxView> bones;
 
+        public event EventHandler LessonChanged;
+
 
         public DayLayout() : base()
         {
-            bones = new List<BoxView>();
-            for (int i = HSTART; i < HEND; i++)
-            {
-                var bone = new BoxView{
-                    HeightRequest = 1,
-                    Color = Color.Silver,
-                };
-                var position = new Rectangle(
-                    0,
-                    i * HEIGHT,
-                    Width,
-                    HEIGHT
-                );
-
-                SetLayoutBounds(bone, position);
-                bones.Add(bone);
-            }
-            DrawBones();
         }
-
-        private void DrawBones()
-        {
-            foreach (var bone in bones)
-            {
-                Children.Add(bone);
-            }
-        }
-
+        
         internal void SetSubjects(List<Subject> subjects)
         {
             cours = subjects;
@@ -59,7 +45,6 @@ namespace EdT_IHM2
         private void DisplayLessons()
         {
             Children.Clear();
-            DrawBones();
 
             foreach (var cour in cours)
             {

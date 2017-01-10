@@ -28,11 +28,11 @@ namespace EdT_IHM2
         {
             InitializeComponent();
             week = 50;
-            foreach (var day_tmp in DaysView.Children)
-            {
-                DayView day = (DayView)day_tmp;
-                day.subjects = subjects.Where(s => s.start.Day == day.day).ToList();
-            }
+            //foreach (var day_tmp in DaysView.Children)
+            //{
+            //    DayView day = (DayView)day_tmp;
+            //    day.subjects = subjects.Where(s => s.start.Day == day.day).ToList();
+            //}
         }
     }
 }

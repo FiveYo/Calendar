@@ -12,13 +12,6 @@ namespace EdT_IHM2
 {
     public partial class DayView : ContentView
     {
-        public static readonly BindableProperty SubjectsProperty =
-            BindableProperty.Create("Subjects", typeof(List<Subject>), typeof(DayView), null, propertyChanged: SubjectChanged);
-        private static void SubjectChanged(BindableObject bindable, object oldValue, object newValue)
-        {
-            DayView day = bindable as DayView;
-            day.LessonChanged?.Invoke(null, null);
-        }
 
         public static readonly BindableProperty YearProperty =
             BindableProperty.Create("Year", typeof(int), typeof(DayView), 1, propertyChanged: YearChanged);
@@ -48,7 +41,6 @@ namespace EdT_IHM2
         }
 
         public event EventHandler DateChanged;
-        public event EventHandler LessonChanged;
 
         public int year
         {
@@ -66,22 +58,16 @@ namespace EdT_IHM2
             set { SetValue(DayProperty, value); }
         }
 
-        public List<Subject> subjects
-        {
-            get { return (List<Subject>)GetValue(SubjectsProperty); }
-            set { SetValue(SubjectsProperty, value); }
-        }
+        //public List<Subject> subjects
+        //{
+        //    //get { return (List<Subject>)GetValue(SubjectsProperty); }
+        //    //set { SetValue(SubjectsProperty, value); }
+        //}
 
         public DayView()
         {
             InitializeComponent();
             DateChanged += DayView_DateChanged;
-            LessonChanged += DayView_LessonChanged;
-        }
-
-        private void DayView_LessonChanged(object sender, EventArgs e)
-        {
-            dayLayout.SetSubjects(subjects);
         }
 
         private void DayView_DateChanged(object sender, EventArgs e)

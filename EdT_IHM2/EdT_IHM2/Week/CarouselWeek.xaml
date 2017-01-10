@@ -2,27 +2,8 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EdT_IHM2.CarouselWeek"
-             xmlns:local="clr-namespace:EdT_IHM2">
+             xmlns:local="clr-namespace:EdT_IHM2.Day">
     <ContentView.Content>
-        <ScrollView>
-            <Grid x:Name="DaysView">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="2*"/>
-                </Grid.ColumnDefinitions>
-                <local:DayView Year="2017" Month="1" Day="1" Grid.Row="0" Grid.Column="0"/>
-                <local:DayView Year="2017" Month="1" Day="2" Grid.Row="0" Grid.Column="1"/>
-                <local:DayView Year="2017" Month="1" Day="3" Grid.Row="0" Grid.Column="2"/>
-                <local:DayView Year="2017" Month="1" Day="4" Grid.Row="0" Grid.Column="3"/>
-                <local:DayView Year="2017" Month="1" Day="5" Grid.Row="0" Grid.Column="4"/>
-                <local:DayView Year="2017" Month="1" Day="6" Grid.Row="0" Grid.Column="5"/>
-                <local:DayView Year="2017" Month="1" Day="7" Grid.Row="0" Grid.Column="6"/>
-            </Grid>
-        </ScrollView>
+        <local:WeekLayout x:Name="weekLayout"/>
     </ContentView.Content>
 </ContentView>

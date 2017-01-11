@@ -4,15 +4,15 @@
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              x:Class="EdT_IHM2.newEvent">
 
-  <StackLayout>
+  <StackLayout Margin="10">
     <ContentView>
-      <Label Text="Nouvel Événement" FontSize ="20" HorizontalTextAlignment="Center" />
+      <Label x:Name="title" Text="Nouvel Événement" FontSize ="20" HorizontalTextAlignment="Center" Margin="10" />
     </ContentView>
-    <Entry Placeholder="Objet" />
-    <Entry Placeholder="Lieu" />
+    <Entry x:Name="objet" Placeholder="Objet" />
+    <Entry x:Name="lieu" Placeholder="Lieu" />
     <StackLayout Orientation="Horizontal">
       <Label Text="Fuseau Horaire" />
-      <Picker x:Name="GMTPicker" HorizontalOptions="FillAndExpand">
+      <Picker x:Name="fuseau" SelectedIndex="13">
         <Picker.Items>
           <x:String>GMT -11:00</x:String>
           <x:String>GMT -10:00</x:String>
@@ -43,13 +43,30 @@
       </Picker>
     </StackLayout>
     <StackLayout Orientation="Horizontal">
-      <Switch IsToggled="{Binding alldaySwitchIsOn}" Toggled="switcher_Toggled" HorizontalOptions="EndAndExpand"/>
+      <Switch IsToggled="{Binding alldaySwitchIsOn}" Toggled="switcher_Toggled"/>
       <Label Text="Journée entière" />
-    </StackLayout>
-    <ContentView>
-      <StackLayout Orientation="Horizontal">
+      <DatePicker x:Name="journee" IsVisible="{Binding alldaySwitchIsOn}" Date="{x:Static sys:DateTime.Now}">
+        <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
+          <DatePicker.MinimumDate>
+            <sys:DateTime x:FactoryMethod="Parse">
+              <x:Arguments>
+                <x:String>1 Jan 2000</x:String>
+              </x:Arguments>
+            </sys:DateTime>
+          </DatePicker.MinimumDate>
+          <DatePicker.MaximumDate>
+            <sys:DateTime x:FactoryMethod="Parse">
+              <x:Arguments>
+                <x:String>31 Dec 2050</x:String>
+              </x:Arguments>
+            </sys:DateTime>
+          </DatePicker.MaximumDate>
+        </DatePicker>
+      </StackLayout>
+
+      <StackLayout x:Name="dateDebutStack" Orientation="Horizontal">
         <Label Text="Début" />
-        <DatePicker VerticalOptions="CenterAndExpand" Date="{x:Static sys:DateTime.Now}">
+        <DatePicker x:Name="dateDebut" Date="{x:Static sys:DateTime.Now}">
           <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
           <DatePicker.MinimumDate>
             <sys:DateTime x:FactoryMethod="Parse">
@@ -66,10 +83,11 @@
             </sys:DateTime>
           </DatePicker.MaximumDate>
         </DatePicker>
+        <TimePicker x:Name="heureDebut" />
       </StackLayout>
-      <StackLayout Orientation="Horizontal">
+      <StackLayout x:Name="dateFinStack" Orientation="Horizontal">
         <Label Text="Fin" />
-        <DatePicker VerticalOptions="CenterAndExpand" Date="{x:Static sys:DateTime.Now}">
+        <DatePicker x:Name="dateFin" VerticalOptions="CenterAndExpand" Date="{x:Static sys:DateTime.Now}">
           <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
           <DatePicker.MinimumDate>
             <sys:DateTime x:FactoryMethod="Parse">
@@ -86,13 +104,13 @@
             </sys:DateTime>
           </DatePicker.MaximumDate>
         </DatePicker>
+        <TimePicker x:Name="heureFin" />
       </StackLayout>
-    </ContentView>
     
-    <Entry Placeholder="Description" />
+    <Entry x:Name="description" Placeholder="Description" />
     <StackLayout Orientation="Horizontal">
       <Label Text="État" />
-      <Picker x:Name="EtatPicker" HorizontalOptions="FillAndExpand">
+      <Picker x:Name="etat">
         <Picker.Items>
           <x:String>Occupé</x:String>
           <x:String>Disponible</x:String>
@@ -101,7 +119,7 @@
     </StackLayout>
     <StackLayout Orientation="Horizontal">
       <Label Text="Répéter" />
-      <Picker x:Name="RepatPicker" HorizontalOptions="FillAndExpand">
+      <Picker x:Name="repeat">
         <Picker.Items>
           <x:String>Ne pas répéter</x:String>
           <x:String>Chaque semaine</x:String>
@@ -112,7 +130,7 @@
     </StackLayout>
     <StackLayout Orientation="Horizontal">
       <Label Text="Rappels" />
-      <Picker x:Name="RappelPicker" HorizontalOptions="FillAndExpand">
+      <Picker x:Name="rappel" SelectedIndex="1" HorizontalOptions="FillAndExpand" >
         <Picker.Items>
           <x:String>Pas de rappel</x:String>
           <x:String>15 minutes avant</x:String>
@@ -122,9 +140,7 @@
         </Picker.Items>
       </Picker>
     </StackLayout>
-    <StackLayout Orientation="Horizontal">
-      <Switch />
-      <Label Text="Notifications" />
-    </StackLayout>
+  <Button Text="Créer l'événement" HorizontalOptions="Center" Clicked="create_onClick" Margin="10"/>
+
   </StackLayout>
 </ContentPage>

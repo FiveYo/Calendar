@@ -14,11 +14,27 @@ namespace EdT_IHM2
         public newEvent()
         {
             InitializeComponent();
+            alldaySwitchIsOn = false;
+            fuseau.SelectedIndex = 13;
+            rappel.SelectedIndex = 0;
+            repeat.SelectedIndex = 0;
+            etat.SelectedIndex = 0;
+            dateDebutStack.IsVisible = !alldaySwitchIsOn;
+            dateFinStack.IsVisible = !alldaySwitchIsOn;
+            journee.IsVisible = alldaySwitchIsOn;
             NavigationPage.SetHasNavigationBar(this, false);
         }
         void switcher_Toggled(object sender, ToggledEventArgs e)
         {
-        //    label.Text = String.Format("Switch is now {0}", e.Value);
+            alldaySwitchIsOn = !alldaySwitchIsOn;
+            dateDebutStack.IsVisible = !alldaySwitchIsOn;
+            dateFinStack.IsVisible = !alldaySwitchIsOn;
+            journee.IsVisible = alldaySwitchIsOn;
+        }
+
+        void create_onClick(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -63,10 +63,10 @@
                     </StackLayout>
                 </Frame>
                 <Frame  BackgroundColor="Silver" >
-                    <StackLayout >
-                        <Label Text="Qui participe ? " HorizontalOptions="Center"/>
-                        <BoxView  BackgroundColor="Black" HeightRequest="1"  WidthRequest="1000" HorizontalOptions="FillAndExpand"/>
-                        <Label Text="{Binding Participant}" HorizontalOptions="Center"/>
+                    <StackLayout>
+                        <Label Text="Qui participe ?? " HorizontalOptions="Center"/>
+                        <BoxView  BackgroundColor="Black" HeightRequest="1"  WidthRequest="1000" />
+                        <ListView  ItemsSource="{Binding Participant}"/>
                     </StackLayout>
                 </Frame>
                 <Frame  BackgroundColor="Silver" >
@@ -80,7 +80,6 @@
                             </Grid.ColumnDefinitions>
                             <Label Text="{Binding Lieu}" HorizontalOptions="Center" Grid.Column="0" />
                             <Button Text="C'est où"  Grid.Column="1"/>
-
                         </Grid>
                     </StackLayout>
                 </Frame>

@@ -17,7 +17,7 @@ namespace EdT_IHM2
 
         async internal void GoToDetails(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new WeekPage());
+            await Navigation.PushAsync(new DetailsEvents());
         }
     }
 }

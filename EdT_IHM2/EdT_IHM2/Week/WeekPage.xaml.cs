@@ -8,15 +8,18 @@ using Xamarin.Forms;
 
 namespace EdT_IHM2
 {
-    public partial class DetailsEvents : ContentPage
+    public partial class WeekPage : ContentPage
     {
-        public DetailsEvents()
+        public WeekPage()
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            BindingContext = new Evenement("Lundi 29 Fevrier", "On baise ta maman ", "12h", "13h", "Chez ta maman ", "Ta maman ", "SalePute");
         }
-    
-      
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            carousel.OnAppearing();
+        }
     }
 }

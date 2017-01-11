@@ -14,7 +14,8 @@ namespace EdT_IHM2
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            BindingContext = new Evenement("Lundi 29 Fevrier", "On baise ta maman ", "12h", "13h", "Chez ta maman ", "Ta maman ", "SalePute");
+            //BindingContext = new Evenement("Lundi 29 Fevrier", "On baise ta maman ", "12h", "13h", "Chez ta maman ", "Ta maman ", "SalePute");
+            BindingContext = new Evenement("Lundi 29 Fevrier", new DateTime(2016, 03, 12, 12, 00, 00), new DateTime(2016, 03, 12, 12, 00, 00), "On baise ta maman ", "Chez ta maman ", "participants", "SalePute");
         }
     
       

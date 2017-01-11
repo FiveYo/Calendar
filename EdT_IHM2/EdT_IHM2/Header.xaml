@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="EdT_IHM2.Header">
     <ContentView.Content>
-        <StackLayout>
+        <!--<StackLayout>-->
             <Grid HeightRequest="50">
                 <Grid.ColumnDefinitions>
                     <!-- L'étoile est pour la proportionnalité, sans l'étoile je dois savoir la taille de l'écran -->
@@ -10,19 +10,14 @@
                     <ColumnDefinition Width="3*"/>
                 </Grid.ColumnDefinitions>
                 <!--<ListView BindingContext="Test"/>-->
-                <Picker x:Name="Temps" HorizontalOptions="FillAndExpand" Title="Choix Temps" Grid.Column="0">
+                <Picker x:Name="Temps" IsVisible="False"  Title="Choix Temps" Grid.Column="0">
                     <Picker.Items>
                         <x:String>Semaine</x:String>
                         <x:String>Mois</x:String>
                     </Picker.Items>
                 </Picker>
-                <!--<Button Grid.Column="1">
-                <Button.Image >
-                    <OnPlatform x:TypeArguments="FileImageSource"
-                Android="trash-icon.png" />
-                </Button.Image>
-            </Button>-->
-                <Button Image="icon.png" Grid.Column="1"/>
+            <Label Text="Temps" Grid.Column="0"/>
+            <Image x:Name="img" Source="trash3.png" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Column="1"></Image>
                 <Picker x:Name="Paramètres"  HorizontalOptions="StartAndExpand" Title="Paramètres" Grid.Column="2">
                     <Picker.Items>
                         <x:String>Compte</x:String>
@@ -30,7 +25,16 @@
                     </Picker.Items>
                 </Picker>
             </Grid>
-            <Image x:Name="img" Source="oeil.jpg" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Image>
-        </StackLayout>
+        <!--</StackLayout>-->
     </ContentView.Content>
 </ContentView>
+
+
+<!--<Button Grid.Column="1">
+    <Button.Image >
+        <OnPlatform x:TypeArguments="FileImageSource"
+                Android="trash-icon.png" />
+    </Button.Image>
+</Button>
+    
+    <Button Image="trash2.png" Grid.Column="1"/>-->

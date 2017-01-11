@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
-namespace EdT_IHM2.School
+namespace EdT_IHM2.Event
 {
-    public partial class Subject : ContentView
+    public partial class WeekConflict : ContentView
     {
-        private Color color
+        public Color color
         {
             get
             {
@@ -22,19 +21,17 @@ namespace EdT_IHM2.School
                 box.Color = value;
             }
         }
-        public DateTime start { get; set; }
-        public DateTime end { get; set; }
-        public Subject()
+
+        public WeekConflict()
         {
             InitializeComponent();
+            color = Color.Blue;
         }
 
-        public Subject(Color color, DateTime start, DateTime end)
+        public WeekConflict(Color color)
         {
             InitializeComponent();
             this.color = color;
-            this.start = start;
-            this.end = end;
         }
     }
 }

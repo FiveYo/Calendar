@@ -1,5 +1,4 @@
-﻿using EdT_IHM2.School;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -8,47 +7,39 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
-namespace EdT_IHM2
+namespace EdT_IHM2.Day
 {
-    public partial class DayView : ContentView
+    public partial class DayHeader : ContentView
     {
-        public static readonly BindableProperty SubjectsProperty =
-            BindableProperty.Create("Subjects", typeof(List<Subject>), typeof(DayView), null, propertyChanged: SubjectChanged);
-        private static void SubjectChanged(BindableObject bindable, object oldValue, object newValue)
-        {
-            DayView day = bindable as DayView;
-            day.LessonChanged?.Invoke(null, null);
-        }
 
         public static readonly BindableProperty YearProperty =
-            BindableProperty.Create("Year", typeof(int), typeof(DayView), 1, propertyChanged: YearChanged);
+            BindableProperty.Create("Year", typeof(int), typeof(DayHeader), 1, propertyChanged: YearChanged);
 
         private static void YearChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            DayView day = bindable as DayView;
+            DayHeader day = bindable as DayHeader;
             day.DateChanged?.Invoke(null, null);
         }
 
         public static readonly BindableProperty MonthProperty =
-            BindableProperty.Create("Month", typeof(int), typeof(DayView), 1, propertyChanged: MonthChanged);
+            BindableProperty.Create("Month", typeof(int), typeof(DayHeader), 1, propertyChanged: MonthChanged);
 
         private static void MonthChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            DayView day = bindable as DayView;
+            DayHeader day = bindable as DayHeader;
             day.DateChanged?.Invoke(null, null);
         }
 
         public static readonly BindableProperty DayProperty =
-            BindableProperty.Create("Day", typeof(int), typeof(DayView), 1, propertyChanged: DayChanged);
+            BindableProperty.Create("Day", typeof(int), typeof(DayHeader), 1, propertyChanged: DayChanged);
 
         private static void DayChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            DayView day = bindable as DayView;
+            DayHeader day = bindable as DayHeader;
             day.DateChanged?.Invoke(null, null);
         }
 
         public event EventHandler DateChanged;
-        public event EventHandler LessonChanged;
 
         public int year
         {
@@ -66,22 +57,16 @@ namespace EdT_IHM2
             set { SetValue(DayProperty, value); }
         }
 
-        public List<Subject> subjects
-        {
-            get { return (List<Subject>)GetValue(SubjectsProperty); }
-            set { SetValue(SubjectsProperty, value); }
-        }
+        //public List<Subject> subjects
+        //{
+        //    //get { return (List<Subject>)GetValue(SubjectsProperty); }
+        //    //set { SetValue(SubjectsProperty, value); }
+        //}
 
-        public DayView()
+        public DayHeader()
         {
             InitializeComponent();
             DateChanged += DayView_DateChanged;
-            LessonChanged += DayView_LessonChanged;
-        }
-
-        private void DayView_LessonChanged(object sender, EventArgs e)
-        {
-            dayLayout.SetSubjects(subjects);
         }
 
         private void DayView_DateChanged(object sender, EventArgs e)

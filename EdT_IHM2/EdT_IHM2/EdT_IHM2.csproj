@@ -41,6 +41,9 @@
     <Compile Include="Day\DayHeader.xaml.cs">
       <DependentUpon>DayHeader.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Day\DayPage.xaml.cs">
+      <DependentUpon>DayPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Day\WeekLayout.xaml.cs">
       <DependentUpon>WeekLayout.xaml</DependentUpon>
     </Compile>
@@ -154,6 +157,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="newEvent.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Day\DayPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

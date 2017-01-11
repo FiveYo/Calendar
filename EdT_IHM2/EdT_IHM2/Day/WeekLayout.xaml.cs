@@ -20,6 +20,7 @@ namespace EdT_IHM2.Day
         const double NBCOLUMN = 8.0;
         List<BoxView> bones;
         List<Label> scales;
+        List<WeekEvent> events;
         public WeekLayout()
         {
             InitializeComponent();
@@ -90,6 +91,10 @@ namespace EdT_IHM2.Day
                 DrawEvent(ev);
             }
             CheckIntersectionEvent();
+            foreach (var ev in events)
+            {
+                ev.PropertyChanged += Event_PropertyChanged;
+            }
         }
 
         private void DrawEvent(WeekEvent ev)
@@ -148,12 +153,18 @@ namespace EdT_IHM2.Day
 
         private void Event_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            //WeekEvent ev = sender as WeekEvent;
-            //if (ev!=null)
-            //{
-            //    Days.Children.Remove(ev);
-            //    DrawEvent(ev);
-            //}
+            WeekEvent ev = sender as WeekEvent;
+            if(ev != null)
+            {
+                var position = new Rectangle(
+                    ((double)ev.start.DayOfWeek + 1) / (NBCOLUMN - 1),
+                    ev.start.Hour * HEIGHT + ev.start.Minute,
+                    1.0 / NBCOLUMN,
+                    (ev.end - ev.start).TotalMinutes
+                );
+                AbsoluteLayout.SetLayoutBounds(ev, position);
+                AbsoluteLayout.SetLayoutFlags(ev, AbsoluteLayoutFlags.WidthProportional | AbsoluteLayoutFlags.XProportional);
+            }
         }
 
         public async void ScrollTo(double X = 0, double Y = HDEPSHOW * HEIGHT, bool animated = false)

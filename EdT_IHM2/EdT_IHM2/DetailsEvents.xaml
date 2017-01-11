@@ -27,7 +27,7 @@
               <RowDefinition Height="2*" />
               <RowDefinition Height="3*" />
       </Grid.RowDefinitions>
-    
+      <BoxView Grid.Row="0" BackgroundColor="Red" HeightRequest="2" VerticalOptions="End" HorizontalOptions="FillAndExpand"></BoxView>
       <Grid Grid.Row="1" BackgroundColor="Green">
           <Grid.RowDefinitions>
             <RowDefinition Height ="1*"/>

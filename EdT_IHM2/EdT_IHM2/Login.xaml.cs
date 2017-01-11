@@ -15,9 +15,9 @@ namespace EdT_IHM2
             NavigationPage.SetHasNavigationBar(this, false);
         }
 
-        async internal void GoToWeek(object sender, EventArgs e)
+        async internal void GoToDetails(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Week());
+            await Navigation.PushAsync(new DetailsEvents());
         }
     }
 }

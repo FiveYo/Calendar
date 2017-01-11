@@ -88,8 +88,8 @@ namespace EdT_IHM2.Day
             foreach (var ev in events)
             {
                 DrawEvent(ev);
-                ev.PropertyChanged += Event_PropertyChanged;
             }
+            CheckIntersectionEvent();
         }
 
         private void DrawEvent(WeekEvent ev)
@@ -112,15 +112,37 @@ namespace EdT_IHM2.Day
                 var ev = child as WeekEvent;
                 return ev != null;
             });
+            int i = 1;
+            List<WeekConflict> toAdd = new List<WeekConflict>();
             foreach (var ev in events)
             {
                 var position = AbsoluteLayout.GetLayoutBounds(ev);
-                foreach (var ev2 in events.Except(new List<View>{ ev }))
+                var flag = AbsoluteLayout.GetLayoutFlags(ev);
+                var bigIntersection = new Rectangle();
+                bigIntersection.Y = position.Y + position.Height;
+                bigIntersection.X = position.X;
+                bigIntersection.Width = position.Width;
+
+                foreach (var ev2 in events.Skip(i))
                 {
                     var position2 = AbsoluteLayout.GetLayoutBounds(ev2);
                     var intersection = position.Intersect(position2);
 
+                    if (intersection.Y < bigIntersection.Y && intersection.Y != 0)
+                    {
+                        (ev as WeekEvent).Conflict();
+                        (ev2 as WeekEvent).Conflict();
+                        //var conflictZone = new WeekConflict(Color.Red);
+                        //AbsoluteLayout.SetLayoutBounds(conflictZone, intersection);
+                        //AbsoluteLayout.SetLayoutFlags(conflictZone, AbsoluteLayoutFlags.WidthProportional | AbsoluteLayoutFlags.XProportional);
+                        //toAdd.Add(conflictZone);
+                    }
                 }
+                i++;
+            }
+            foreach (var item in toAdd)
+            {
+                Days.Children.Add(item);
             }
         }
 

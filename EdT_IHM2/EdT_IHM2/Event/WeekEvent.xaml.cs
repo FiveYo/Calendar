@@ -11,7 +11,9 @@ namespace EdT_IHM2.Event
 {
     public partial class WeekEvent : ContentView
     {
-        private Color color
+        const double alphaMult = 0.6;
+        private Color _colorTransparent;
+        public Color color
         {
             get
             {
@@ -35,6 +37,12 @@ namespace EdT_IHM2.Event
             this.color = color;
             this.start = start;
             this.end = end;
+            _colorTransparent = color.MultiplyAlpha(alphaMult);
+        }
+
+        public void Conflict()
+        {
+            color = _colorTransparent;
         }
     }
 }

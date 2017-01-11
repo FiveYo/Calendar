@@ -22,7 +22,9 @@ namespace EdT_IHM2
             new WeekEvent(Color.Blue, new DateTime(2017,1,5,8,0,0), new DateTime(2017,1,5,9,0,0)),
             new WeekEvent(Color.Aqua, new DateTime(2017,1,6,9,0,0), new DateTime(2017,1,6,12,0,0)),
             new WeekEvent(Color.Gray, new DateTime(2017,1,7,11,0,0), new DateTime(2017,1,7,12,0,0)),
-            new WeekEvent(Color.Yellow, new DateTime(2017,1,8,15,30,0), new DateTime(2017,1,8,17,0,0))
+            new WeekEvent(Color.Yellow, new DateTime(2017,1,8,15,30,0), new DateTime(2017,1,8,17,0,0)),
+            new WeekEvent(Color.Lime, new DateTime(2017,1,2,9,30,0), new DateTime(2017,1,2,11,0,0)),
+            new WeekEvent(Color.Black, new DateTime(2017,1,2,11,30,0), new DateTime(2017,1,2,12,30,0)),
         };
         public int week
         {

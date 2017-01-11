@@ -13,6 +13,23 @@ namespace EdT_IHM2
         public Header()
         {
             InitializeComponent();
+
+            //Creating TapGestureRecognizers  
+            var tapImage = new TapGestureRecognizer();
+            //Binding events  
+            tapImage.Tapped += tapImage_Tapped;
+            //Associating tap events to the image buttons  
+            img.GestureRecognizers.Add(tapImage);
         }
+        void tapImage_Tapped(object sender, EventArgs e)
+        {
+            // handle the tap  
+
+        }
+
+
     }
+
+
 }
+

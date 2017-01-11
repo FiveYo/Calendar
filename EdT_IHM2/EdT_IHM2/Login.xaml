@@ -10,7 +10,7 @@
         </ContentView>
         <Entry Placeholder="Nom d'utilisateur"/>
         <Entry Placeholder="Mot de passe" IsPassword="True"/>
-        <Button Text="Connexion" Clicked="GoToWeek"/>
+        <Button Text="Connexion" Clicked="GoToDetails"/>
         <StackLayout Orientation="Horizontal">
             <Switch/>
             <Label Text="Rester connecté" VerticalOptions="Center"/>

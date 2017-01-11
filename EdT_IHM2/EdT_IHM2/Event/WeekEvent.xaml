@@ -1,6 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="EdT_IHM2.Event.WeekEvent">
     <ContentView.Content>
-        <BoxView x:Name="box" HeightRequest="100000"/>
+        <Grid x:Name="gridy" >
+            <Label x:Name="box" Text="Physique Chimie" TextColor="Black"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Font="5" HeightRequest="10" >
+                <!--<Label.Text>
+                    Physique-Chimie
+                </Label.Text>-->
+            </Label>
+        </Grid>
     </ContentView.Content>
 </ContentView>

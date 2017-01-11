@@ -17,11 +17,11 @@ namespace EdT_IHM2.Event
         {
             get
             {
-                return box.Color;
+                return gridy.BackgroundColor;
             }
             set
             {
-                box.Color = value;
+                gridy.BackgroundColor = value;
             }
         }
         public DateTime start { get; set; }

@@ -16,7 +16,7 @@
                         <x:String>Mois</x:String>
                     </Picker.Items>
                 </Picker>
-            <Label Text="Temps" Grid.Column="0"/>
+            <Label Text="Temps" x:Name="temps" Grid.Column="0"/>
             <Image x:Name="img" Source="trash3.png" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Column="1"></Image>
                 <Picker x:Name="Paramètres"  HorizontalOptions="StartAndExpand" Title="Paramètres" Grid.Column="2">
                     <Picker.Items>

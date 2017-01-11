@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
-namespace EdT_IHM2.School
+namespace EdT_IHM2.Event
 {
-    public partial class Subject : ContentView
+    public partial class WeekEvent : ContentView
     {
         private Color color
         {
@@ -24,12 +24,12 @@ namespace EdT_IHM2.School
         }
         public DateTime start { get; set; }
         public DateTime end { get; set; }
-        public Subject()
+        public WeekEvent()
         {
             InitializeComponent();
         }
 
-        public Subject(Color color, DateTime start, DateTime end)
+        public WeekEvent(Color color, DateTime start, DateTime end)
         {
             InitializeComponent();
             this.color = color;

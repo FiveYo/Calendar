@@ -8,12 +8,18 @@ using Xamarin.Forms;
 
 namespace EdT_IHM2
 {
-    public partial class WeekView : ContentPage
+    public partial class WeekPage : ContentPage
     {
-        public WeekView()
+        public WeekPage()
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            carousel.OnAppearing();
         }
     }
 }

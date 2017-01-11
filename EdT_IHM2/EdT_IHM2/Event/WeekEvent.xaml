@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="EdT_IHM2.School.Subject" x:Name="this">
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="EdT_IHM2.Event.WeekEvent">
     <ContentView.Content>
         <BoxView x:Name="box" HeightRequest="100000"/>
     </ContentView.Content>

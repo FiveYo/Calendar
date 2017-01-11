@@ -50,11 +50,16 @@
     <Compile Include="Event\WeekEvent.xaml.cs">
       <DependentUpon>WeekEvent.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DetailsEvents.xaml.cs">
+      <DependentUpon>DetailsEvents.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Evenement.cs" />
     <Compile Include="Week\CarouselWeek.xaml.cs">
       <DependentUpon>CarouselWeek.xaml</DependentUpon>
     </Compile>
     <Compile Include="Header.xaml.cs">
       <DependentUpon>Header.xaml</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
@@ -75,6 +80,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="System.ServiceModel.Primitives">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5.1\System.ServiceModel.Primitives.dll</HintPath>
+    </Reference>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Forms.2.2.0.45\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
       <Private>True</Private>
@@ -102,6 +110,7 @@
     <EmbeddedResource Include="Header.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -130,6 +139,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Event\WeekConflict.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DetailsEvents.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

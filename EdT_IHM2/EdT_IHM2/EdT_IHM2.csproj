@@ -54,6 +54,9 @@
       <DependentUpon>DetailsEvents.xaml</DependentUpon>
     </Compile>
     <Compile Include="Evenement.cs" />
+    <Compile Include="newEvent.xaml.cs">
+      <DependentUpon>newEvent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Week\CarouselWeek.xaml.cs">
       <DependentUpon>CarouselWeek.xaml</DependentUpon>
     </Compile>
@@ -145,6 +148,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DetailsEvents.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="newEvent.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

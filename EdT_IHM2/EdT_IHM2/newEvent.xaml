@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             x:Class="EdT_IHM2.newEvent">
+
+  <StackLayout Margin="10">
+    <ContentView>
+      <Label x:Name="title" Text="Nouvel Événement" FontSize ="20" HorizontalTextAlignment="Center" Margin="10" />
+    </ContentView>
+    <Entry x:Name="objet" Placeholder="Objet" />
+    <Entry x:Name="lieu" Placeholder="Lieu" />
+    <StackLayout Orientation="Horizontal">
+      <Label Text="Fuseau Horaire" />
+      <Picker x:Name="fuseau" SelectedIndex="13">
+        <Picker.Items>
+          <x:String>GMT -11:00</x:String>
+          <x:String>GMT -10:00</x:String>
+          <x:String>GMT -9:00</x:String>
+          <x:String>GMT -8:00</x:String>
+          <x:String>GMT -7:00</x:String>
+          <x:String>GMT -6:00</x:String>
+          <x:String>GMT -5:00</x:String>
+          <x:String>GMT -4:00</x:String>
+          <x:String>GMT -3:00</x:String>
+          <x:String>GMT -2:00</x:String>
+          <x:String>GMT -1:00</x:String>
+          <x:String>GMT +0:00</x:String>
+          <x:String>GMT +1:00</x:String>
+          <x:String>GMT +2:00</x:String>
+          <x:String>GMT +3:00</x:String>
+          <x:String>GMT +4:00</x:String>
+          <x:String>GMT +5:00</x:String>
+          <x:String>GMT +6:00</x:String>
+          <x:String>GMT +7:00</x:String>
+          <x:String>GMT +8:00</x:String>
+          <x:String>GMT +9:00</x:String>
+          <x:String>GMT +10:00</x:String>
+          <x:String>GMT +11:00</x:String>
+          <x:String>GMT +12:00</x:String>
+          <x:String>GMT +13:00</x:String>
+        </Picker.Items>
+      </Picker>
+    </StackLayout>
+    <StackLayout Orientation="Horizontal">
+      <Switch IsToggled="{Binding alldaySwitchIsOn}" Toggled="switcher_Toggled"/>
+      <Label Text="Journée entière" />
+      <DatePicker x:Name="journee" IsVisible="{Binding alldaySwitchIsOn}" Date="{x:Static sys:DateTime.Now}">
+        <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
+          <DatePicker.MinimumDate>
+            <sys:DateTime x:FactoryMethod="Parse">
+              <x:Arguments>
+                <x:String>1 Jan 2000</x:String>
+              </x:Arguments>
+            </sys:DateTime>
+          </DatePicker.MinimumDate>
+          <DatePicker.MaximumDate>
+            <sys:DateTime x:FactoryMethod="Parse">
+              <x:Arguments>
+                <x:String>31 Dec 2050</x:String>
+              </x:Arguments>
+            </sys:DateTime>
+          </DatePicker.MaximumDate>
+        </DatePicker>
+      </StackLayout>
+
+      <StackLayout x:Name="dateDebutStack" Orientation="Horizontal">
+        <Label Text="Début" />
+        <DatePicker x:Name="dateDebut" Date="{x:Static sys:DateTime.Now}">
+          <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
+          <DatePicker.MinimumDate>
+            <sys:DateTime x:FactoryMethod="Parse">
+              <x:Arguments>
+                <x:String>1 Jan 2000</x:String>
+              </x:Arguments>
+            </sys:DateTime>
+          </DatePicker.MinimumDate>
+          <DatePicker.MaximumDate>
+            <sys:DateTime x:FactoryMethod="Parse">
+              <x:Arguments>
+                <x:String>31 Dec 2050</x:String>
+              </x:Arguments>
+            </sys:DateTime>
+          </DatePicker.MaximumDate>
+        </DatePicker>
+        <TimePicker x:Name="heureDebut" />
+      </StackLayout>
+      <StackLayout x:Name="dateFinStack" Orientation="Horizontal">
+        <Label Text="Fin" />
+        <DatePicker x:Name="dateFin" VerticalOptions="CenterAndExpand" Date="{x:Static sys:DateTime.Now}">
+          <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
+          <DatePicker.MinimumDate>
+            <sys:DateTime x:FactoryMethod="Parse">
+              <x:Arguments>
+                <x:String>1 Jan 2000</x:String>
+              </x:Arguments>
+            </sys:DateTime>
+          </DatePicker.MinimumDate>
+          <DatePicker.MaximumDate>
+            <sys:DateTime x:FactoryMethod="Parse">
+              <x:Arguments>
+                <x:String>31 Dec 2050</x:String>
+              </x:Arguments>
+            </sys:DateTime>
+          </DatePicker.MaximumDate>
+        </DatePicker>
+        <TimePicker x:Name="heureFin" />
+      </StackLayout>
+    
+    <Entry x:Name="description" Placeholder="Description" />
+    <StackLayout Orientation="Horizontal">
+      <Label Text="État" />
+      <Picker x:Name="etat">
+        <Picker.Items>
+          <x:String>Occupé</x:String>
+          <x:String>Disponible</x:String>
+        </Picker.Items>
+      </Picker>
+    </StackLayout>
+    <StackLayout Orientation="Horizontal">
+      <Label Text="Répéter" />
+      <Picker x:Name="repeat">
+        <Picker.Items>
+          <x:String>Ne pas répéter</x:String>
+          <x:String>Chaque semaine</x:String>
+          <x:String>Chaque mois</x:String>
+          <x:String>Chaque année</x:String>
+        </Picker.Items>
+      </Picker>
+    </StackLayout>
+    <StackLayout Orientation="Horizontal">
+      <Label Text="Rappels" />
+      <Picker x:Name="rappel" SelectedIndex="1" HorizontalOptions="FillAndExpand" >
+        <Picker.Items>
+          <x:String>Pas de rappel</x:String>
+          <x:String>15 minutes avant</x:String>
+          <x:String>30 minutes avant</x:String>
+          <x:String>1 heure avant</x:String>
+          <x:String>1 jour avant</x:String>
+        </Picker.Items>
+      </Picker>
+    </StackLayout>
+  <Button Text="Créer l'événement" HorizontalOptions="Center" Clicked="create_onClick" Margin="10"/>
+
+  </StackLayout>
+</ContentPage>

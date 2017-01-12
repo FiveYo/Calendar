@@ -10,6 +10,7 @@ namespace EdT_IHM2
 {
     public partial class DetailsEvents : ContentPage
     {
+        Evenement Event;
         public DetailsEvents()
         {
             InitializeComponent();
@@ -18,6 +19,7 @@ namespace EdT_IHM2
 
         public DetailsEvents(Evenement ev)
         {
+            Event = ev;
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
             BindingContext = ev;
@@ -48,10 +50,9 @@ namespace EdT_IHM2
             await Navigation.PopAsync();
         }
 
-        void ToModify(object sender, EventArgs e)
-        { 
-            // handle the tap  
-            DisplayAlert("TODO", "A REDIRIGER PAGE MODIFICATION", "OK");
+        async void ToModify(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new newEvent(Event));
         }
         async void ToMap(object sender, EventArgs e)
         {

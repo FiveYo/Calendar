@@ -35,7 +35,7 @@
                             </Button>
                             <BoxView  BackgroundColor="Black" HeightRequest="1"  WidthRequest="1000" />
                             <ScrollView>
-                                <ListView  ItemsSource="{Binding Participant}">
+                                <ListView HasUnevenRows="True" ItemsSource="{Binding Participant}">
                                     <ListView.ItemTemplate>
                                         <DataTemplate>
                                             <TextCell Text="{Binding}" TextColor="Black"/>
@@ -45,7 +45,7 @@
                             </ScrollView>
                         </StackLayout>
                     </Frame>
-                    <Frame  BackgroundColor="White" >
+                    <Frame  BackgroundColor="White">
                         <StackLayout >
                             <Label Text="Où ça ?" HorizontalOptions="Center" TextColor="Black"/>
                             <BoxView  BackgroundColor="Black" HeightRequest="1"  WidthRequest="1000" HorizontalOptions="FillAndExpand"/>
@@ -59,14 +59,14 @@
                             </Grid>
                         </StackLayout>
                     </Frame>
-                    <Frame  BackgroundColor="White" >
+                    <Frame  BackgroundColor="White">
                         <StackLayout >
                             <Label Text="IMPORTANT" HorizontalOptions="Center" TextColor="Black"/>
                             <BoxView  BackgroundColor="Black" HeightRequest="1"  WidthRequest="1000" HorizontalOptions="FillAndExpand"/>
                             <Label Text="{Binding Note}" HorizontalOptions="Center" TextColor="Black"/>
                         </StackLayout>
                     </Frame>
-                    <Frame  BackgroundColor="White" >
+                    <Frame  BackgroundColor="White">
                         <StackLayout >
                             <Label Text="RAPPEL" HorizontalOptions="Center" TextColor="Black"/>
                             <BoxView  BackgroundColor="Black" HeightRequest="1"  WidthRequest="1000" HorizontalOptions="FillAndExpand"/>

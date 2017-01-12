@@ -35,6 +35,7 @@ namespace EdT_IHM2
             objet.Text = evt.Description;
             lieu.Text = evt.Lieu;
             alldaySwitchIsOn = false;
+            //apres merge avec milly, commenter ligne précédente et decommenter la suivante
             //alldaySwitchIsOn = evt.journeeEntiere;
             if (alldaySwitchIsOn)
             {
@@ -51,6 +52,7 @@ namespace EdT_IHM2
 
             fuseau.SelectedIndex = 13;
             rappel.SelectedIndex = 0;
+            //apres merge avec milly, decommenter la ligne suivante
             //rappel.?? = evt.Rappel;
             repeat.SelectedIndex = 0;
             etat.SelectedIndex = 0;
@@ -58,8 +60,9 @@ namespace EdT_IHM2
             dateFinStack.IsVisible = !alldaySwitchIsOn;
             journee.IsVisible = alldaySwitchIsOn;
 
+            // decommenter les lignes suivantes pour modifier le comportement du bouton de validation
             //validerBtn.Text = "Modifier";
-            //validerBtn.Clicked = modify_onClick;
+            //validerBtn.Clicked = "modify_onClick"; // (avec ou sans guillemets ?)
 
             NavigationPage.SetHasNavigationBar(this, false);
         }
@@ -73,6 +76,7 @@ namespace EdT_IHM2
 
         void create_onClick(object sender, EventArgs e)
         {
+            bool journeeEntiere = alldaySwitchIsOn;
             string Date = "";
             string Description = objet.Text.ToString();
             string Lieu = lieu.Text.ToString();
@@ -107,14 +111,19 @@ namespace EdT_IHM2
                 DateDebut = new DateTime(yearStart, monthStart, dayStart, hourStart, minStart, secStart);
                 DateFin = new DateTime(yearEnd, monthEnd, dayEnd, hourEnd, minEnd, secEnd);
             }
+            // Apres merge avec Milly, normalement il a rajoute un bool "journee" ou qlq chose dans le chose qui indique si l'evenement
+            // s'etale sur une journee entiere ou pas. Faut donc le rajouter dans le constructeur suivant (champs journeeEntiere dénifi
+            // au début de cette fonction) :
             Evenement ev = new Evenement(Date, DateDebut, DateFin, Description, Lieu, Participants, Note);
             Debug.WriteLine(ev);
         }
 
         void modify_onClick(object sender, EventArgs e)
         {
+            // Cette fonction modifie directement l'evenement passé en paramètre dans le constructeur
             evt.Description = objet.Text.ToString();
             evt.Lieu = lieu.Text.ToString();
+            // avec la nouvelle version Participant sera une liste de string et plus un simple string
             //evt.Participant = new List<string>();
             evt.Participant = "";
             evt.Note = description.Text.ToString();

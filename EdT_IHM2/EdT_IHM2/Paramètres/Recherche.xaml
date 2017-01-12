@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:EdT_IHM2"
-             x:Class="EdT_IHM2.WeekPage">
+             x:Class="EdT_IHM2.Paramètres.Recherche">
     <ContentPage.Content>
         <StackLayout>
-            <local:Header x:Name="header"/>
-            <local:CarouselWeek x:Name="carousel"/>
+            <Entry Placeholder="Tapez votre recherche"/>
+            <Button Text="Go"/>
         </StackLayout>
+
     </ContentPage.Content>
+
 </ContentPage>

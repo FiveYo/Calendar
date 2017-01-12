@@ -5,8 +5,8 @@
             <Grid HeightRequest="50">
                 <Grid.ColumnDefinitions>
                     <!-- L'étoile est pour la proportionnalité, sans l'étoile je dois savoir la taille de l'écran -->
-                    <ColumnDefinition Width="7*"/>
-                    <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="3*"/>
                     <ColumnDefinition Width="3*"/>
                 </Grid.ColumnDefinitions>
                 <!--<ListView BindingContext="Test"/>-->
@@ -16,15 +16,12 @@
                         <x:String>Mois</x:String>
                     </Picker.Items>
                 </Picker>
-            <Label Text="Temps" x:Name="temps" Grid.Column="0"/>
-            <Image x:Name="img" Source="trash3.png" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Column="1"></Image>
-                <Picker x:Name="Paramètres"  HorizontalOptions="StartAndExpand" Title="Paramètres" Grid.Column="2">
-                    <Picker.Items>
-                        <x:String>Compte</x:String>
-                        <x:String>Paramètres</x:String>
-                    </Picker.Items>
-                </Picker>
-            </Grid>
+            <Label ClassId="0" Text="Temps" x:Name="temps" Grid.Column="0"/>
+            <Image ClassId="4" x:Name="img2" Source="point.png" TranslationX="-40" Grid.Column="0" />
+            <Image ClassId="2" x:Name="img" Source="trash3.png" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Column="1"></Image>
+            <!--<Label Text="ImageSource.FromFile"  x:Name="param" Grid.Column="2"/>-->
+            <Image ClassId="1" x:Name="param" Source="parameter.png" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"  Grid.Column="2"/>
+        </Grid>
         <!--</StackLayout>-->
     </ContentView.Content>
 </ContentView>

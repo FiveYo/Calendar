@@ -6,7 +6,7 @@
 
     <StackLayout VerticalOptions="Center">
         <ContentView Padding="20">
-            <Label Text="Emploi Ton Temps !" FontSize="30" HorizontalTextAlignment="Center" />
+            <Label Text="Emploi Ton Temps !" FontSize="30" HorizontalTextAlignment="Center"/>
         </ContentView>
         <Entry Placeholder="Nom d'utilisateur"/>
         <Entry Placeholder="Mot de passe" IsPassword="True"/>

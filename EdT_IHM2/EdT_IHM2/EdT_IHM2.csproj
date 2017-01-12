@@ -38,6 +38,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Paramètres\Compte.xaml.cs">
+      <DependentUpon>Compte.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Day\DayHeader.xaml.cs">
       <DependentUpon>DayHeader.xaml</DependentUpon>
     </Compile>
@@ -56,6 +59,9 @@
     <Compile Include="Evenement.cs" />
     <Compile Include="newEvent.xaml.cs">
       <DependentUpon>newEvent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Paramètres\Recherche.xaml.cs">
+      <DependentUpon>Recherche.xaml</DependentUpon>
     </Compile>
     <Compile Include="Week\CarouselWeek.xaml.cs">
       <DependentUpon>CarouselWeek.xaml</DependentUpon>
@@ -154,6 +160,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="newEvent.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Paramètres\Compte.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Paramètres\Recherche.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

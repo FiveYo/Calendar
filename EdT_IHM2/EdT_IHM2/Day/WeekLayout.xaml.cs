@@ -20,7 +20,9 @@ namespace EdT_IHM2.Day
         const double NBCOLUMN = 8.0;
         List<BoxView> bones;
         List<Label> scales;
-        List<WeekEvent> events;
+
+        public event EventHandler DayTapped;
+
         public WeekLayout()
         {
             InitializeComponent();
@@ -65,7 +67,22 @@ namespace EdT_IHM2.Day
 
             DrawScales();
             DrawBones();
+
+            //var tpg = new TapGestureRecognizer();
+            //tpg.Tapped += AbsLayout_Tapped;
+
+            //Days.GestureRecognizers.Add(tpg);
+
+            foreach (var item in DaysView.Children.Where(n => { return (n as DayHeader) != null; }))
+            {
+                (item as DayHeader).Tapped += (s, e) => DayTapped?.Invoke(s, e);
+            }
             
+        }
+
+        private void AbsLayout_Tapped(object sender, EventArgs e)
+        {
+            // Pour la création à une certaine date on regarde la position et dans quel colonne on est
         }
 
         private void DrawScales()

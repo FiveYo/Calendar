@@ -12,7 +12,7 @@ namespace EdT_IHM2
     {
         public event PropertyChangedEventHandler PropertyChanged;
         List<string> participants = new List<string>();
-        string date, description, heureDebut, heureFin, lieu, note;
+        string date, description, lieu, note;
         DateTime dateDebut, dateFin;
         public Evenement(string Date, DateTime DateDebut, DateTime DateFin, string Description, string Lieu, List<string> Participants, string Note)
         {

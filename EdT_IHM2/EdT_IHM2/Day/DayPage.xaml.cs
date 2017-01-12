@@ -28,7 +28,7 @@ namespace EdT_IHM2.Day
         public DayPage()
         {
             InitializeComponent();
-            //NavigationPage.SetHasNavigationBar(this, false);
+            NavigationPage.SetHasNavigationBar(this, false);
             //context = 
         }
 

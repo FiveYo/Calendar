@@ -2,28 +2,25 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EdT_IHM2.Paramètres.Compte">
-  <ContentPage.Content>
-    <RelativeLayout>
-      <StackLayout RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Factor=0.5, Constant=+100 }">
-        <BoxView Color="Aqua"/>
-        <!--<Grid HeightRequest="50">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="5*"/>
-                        <ColumnDefinition Width="95*"/>
-                    </Grid.ColumnDefinitions>
-                    <Switch Grid.Column="0"/>
-                    <Label IsToggled="True" Text="qschroter@gmail.com" VerticalOptions="Center" Grid.Column="1"/>
-                </Grid>
-                <Grid HeightRequest="50">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="5*"/>
-                        <ColumnDefinition Width="95*"/>
-                    </Grid.ColumnDefinitions>
-                    <Switch IsToggled="True" Grid.Column="0"/>
-                    <Label Text="qschroter@insa-lyon.fr" VerticalOptions="Center" Grid.Column="1"/>
-                </Grid>-->
-      </StackLayout>
-    </RelativeLayout>
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid HeightRequest="50">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="95*"/>
+                </Grid.ColumnDefinitions>
+                <Switch Grid.Column="0"/>
+                <Label IsToggled="True" Text="qschroter@gmail.com" VerticalOptions="Center" Grid.Column="1"/>
+            </Grid>
+            <Grid HeightRequest="50">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="95*"/>
+                </Grid.ColumnDefinitions>
+                <Switch IsToggled="True" Grid.Column="0"/>
+                <Label Text="qschroter@insa-lyon.fr" VerticalOptions="Center" Grid.Column="1"/>
+            </Grid>
+        </StackLayout>
 
-  </ContentPage.Content>
+    </ContentPage.Content>
 </ContentPage>

@@ -2,7 +2,7 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="EdT_IHM2.Header">
     <ContentView.Content>
         <!--<StackLayout>-->
-        <Grid HeightRequest="70" BackgroundColor="Blue">
+        <Grid HeightRequest="70" BackgroundColor="Aqua">
             <Grid.ColumnDefinitions>
                 <!-- L'étoile est pour la proportionnalité, sans l'étoile je dois savoir la taille de l'écran -->
                 <ColumnDefinition Width="7*"/>

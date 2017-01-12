@@ -64,6 +64,10 @@ namespace EdT_IHM2
             tgr2.Tapped += (s, e) => DisplayPopUp?.Invoke(s, e);
             param.GestureRecognizers.Add(tgr2);
 
+            var tg3 = new TapGestureRecognizer();
+            tg3.Tapped += (s, e) => DisplayPopUp?.Invoke(s, e);
+            imgPlus.GestureRecognizers.Add(tg3);
+
         }
 
         void tapImage_Tapped(object sender, EventArgs e)

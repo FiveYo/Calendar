@@ -115,6 +115,8 @@ namespace EdT_IHM2
             // s'etale sur une journee entiere ou pas. Faut donc le rajouter dans le constructeur suivant (champs journeeEntiere dénifi
             // au début de cette fonction) :
             Evenement ev = new Evenement(Date, DateDebut, DateFin, Description, Lieu, Participants, Note);
+            // On retourne à la page précédente
+            Navigation.PopAsync();
             Debug.WriteLine(ev);
         }
 
@@ -154,6 +156,9 @@ namespace EdT_IHM2
                 int secEnd = heureFin.Time.Seconds;
                 evt.DateDebut = new DateTime(yearStart, monthStart, dayStart, hourStart, minStart, secStart);
                 evt.DateFin = new DateTime(yearEnd, monthEnd, dayEnd, hourEnd, minEnd, secEnd);
+
+                // On retourne sur la page précédente
+                Navigation.PopAsync();
             }
         }
     }

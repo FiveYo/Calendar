@@ -12,9 +12,10 @@ namespace EdT_IHM2
     {
         public event PropertyChangedEventHandler PropertyChanged;
         List<string> participants = new List<string>();
-        string date, description, lieu, note;
+        string date, description, lieu, note,rappel;
         DateTime dateDebut, dateFin;
-        public Evenement(string Date, DateTime DateDebut, DateTime DateFin, string Description, string Lieu, List<string> Participants, string Note)
+        bool EntireDay;
+        public Evenement(string Date, DateTime DateDebut, DateTime DateFin, string Description, string Lieu, List<string> Participants, string Note,bool EntireDay,string Rappels)
         {
             this.date = Date;
             this.dateDebut = DateDebut;
@@ -23,6 +24,7 @@ namespace EdT_IHM2
             this.lieu = Lieu;
             this.participants = Participants;
             this.note = Note;
+            this.rappel = Rappels;
         }
         public string Date
         {
@@ -129,6 +131,21 @@ namespace EdT_IHM2
                 {
                     note = value;
                     OnPropertyChanged("Note");
+                }
+            }
+        }
+        public string Rappel
+        {
+            get
+            {
+                return rappel;
+            }
+            set
+            {
+                if (rappel != value)
+                {
+                    rappel = value;
+                    OnPropertyChanged("Rappel");
                 }
             }
         }

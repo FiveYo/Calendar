@@ -47,51 +47,64 @@
                 <Label Text="{Binding Note}"  Grid.Row="1"/>
             </Grid>
         </Grid>-->
-
-        <ScrollView>
-            <StackLayout  Spacing="2" x:Name="layout" Padding="10">
-                <Frame  BackgroundColor="Silver" >
-                    <StackLayout >
-                        <Label Text="HEADER ICI " HorizontalOptions="Center"/>
-                    </StackLayout>
-                </Frame>
-                <Frame  BackgroundColor="Silver" >
-                    <StackLayout >
-                        <Label Text="{Binding Date}" HorizontalOptions="Center"/>
-                        <BoxView  BackgroundColor="Black" HeightRequest="1"  WidthRequest="1000" HorizontalOptions="FillAndExpand"/>
-                        <Label Text="{Binding DescriptionFinale}" HorizontalOptions="Center"/>
-                    </StackLayout>
-                </Frame>
-                <Frame  BackgroundColor="Silver" >
-                    <StackLayout>
-                        <Label Text="Qui participe ?? " HorizontalOptions="Center"/>
-                        <BoxView  BackgroundColor="Black" HeightRequest="1"  WidthRequest="1000" />
-                        <ListView  ItemsSource="{Binding Participant}"/>
-                    </StackLayout>
-                </Frame>
-                <Frame  BackgroundColor="Silver" >
-                    <StackLayout >
-                        <Label Text="Où ça ?" HorizontalOptions="Center"/>
-                        <BoxView  BackgroundColor="Black" HeightRequest="1"  WidthRequest="1000" HorizontalOptions="FillAndExpand"/>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="6*"/>
-                                <ColumnDefinition Width="3*"/>
-                            </Grid.ColumnDefinitions>
-                            <Label Text="{Binding Lieu}" HorizontalOptions="Center" Grid.Column="0" />
-                            <Button Text="C'est où"  Grid.Column="1"/>
-                        </Grid>
-                    </StackLayout>
-                </Frame>
-                <Frame  BackgroundColor="Silver" >
-                    <StackLayout >
-                        <Label Text="IMPORTANT" HorizontalOptions="Center"/>
-                        <BoxView  BackgroundColor="Black" HeightRequest="1"  WidthRequest="1000" HorizontalOptions="FillAndExpand"/>
-                        <Label Text="{Binding Note}" HorizontalOptions="Center"/>
-                    </StackLayout>
-                </Frame>
-            </StackLayout>
-        </ScrollView>
+        <StackLayout >
+            <Grid HeightRequest="50" BackgroundColor="Silver">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Image  Grid.Column="0" x:Name="img" Source="flecheGauche.png" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Image>
+                <Image  Grid.Column="2" x:Name="img3" Source="penBlanc.png" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Image>
+                <Image  Grid.Column="3" x:Name="img2" Source="poubelle.png" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Image>
+            </Grid>
+            <ScrollView>
+                <StackLayout  Spacing="2" x:Name="layout" Padding="10">
+                    <Frame  BackgroundColor="Silver" >
+                        <StackLayout >
+                            <Label Text="{Binding Date}" HorizontalOptions="Center"/>
+                            <BoxView  BackgroundColor="Black" HeightRequest="1"  WidthRequest="1000" HorizontalOptions="FillAndExpand"/>
+                            <Label Text="{Binding DescriptionFinale}" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame  BackgroundColor="Silver" >
+                        <StackLayout>
+                            <Label Text="Qui participe ?? " HorizontalOptions="Center"/>
+                            <BoxView  BackgroundColor="Black" HeightRequest="1"  WidthRequest="1000" />
+                            <ListView  ItemsSource="{Binding Participant}">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextCell Text="{Binding}"/>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackLayout>
+                    </Frame>
+                    <Frame  BackgroundColor="Silver" >
+                        <StackLayout >
+                            <Label Text="Où ça ?" HorizontalOptions="Center"/>
+                            <BoxView  BackgroundColor="Black" HeightRequest="1"  WidthRequest="1000" HorizontalOptions="FillAndExpand"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="6*"/>
+                                    <ColumnDefinition Width="3*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Lieu}" HorizontalOptions="Center" Grid.Column="0" />
+                                <Button Text="C'est où"  Grid.Column="1"/>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+                    <Frame  BackgroundColor="Silver" >
+                        <StackLayout >
+                            <Label Text="IMPORTANT" HorizontalOptions="Center"/>
+                            <BoxView  BackgroundColor="Black" HeightRequest="1"  WidthRequest="1000" HorizontalOptions="FillAndExpand"/>
+                            <Label Text="{Binding Note}" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
     </ContentPage.Content>
 
 </ContentPage>

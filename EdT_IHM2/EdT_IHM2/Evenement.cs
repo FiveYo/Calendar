@@ -12,9 +12,9 @@ namespace EdT_IHM2
     {
         public event PropertyChangedEventHandler PropertyChanged;
         List<string> participants = new List<string>();
-        string date, description, heureDebut, heureFin, lieu, note;
+        string date, description, lieu, note;
         DateTime dateDebut, dateFin;
-        public Evenement(string Date, DateTime DateDebut, DateTime DateFin, string Description, string Lieu, List<string>  Participants, string Note)
+        public Evenement(string Date, DateTime DateDebut, DateTime DateFin, string Description, string Lieu, List<string> Participants, string Note)
         {
             this.date = Date;
             this.dateDebut = DateDebut;
@@ -86,7 +86,7 @@ namespace EdT_IHM2
                 }
             }
         }
-       
+
         public string Lieu
         {
             get
@@ -132,7 +132,7 @@ namespace EdT_IHM2
                 }
             }
         }
-        protected virtual void OnPropertyChanged (string PropertyName)
+        protected virtual void OnPropertyChanged(string PropertyName)
         {
             var changed = PropertyName;
             if (changed != null)
@@ -142,6 +142,6 @@ namespace EdT_IHM2
         }
 
 
-        public string DescriptionFinale => string.Format("{0} \n De {1}h{3} à {2}h{4}", Description, DateDebut.Hour, DateFin.Hour,DateDebut.Minute,DateFin.Minute);
+        public string DescriptionFinale => string.Format("{0} \n De {1}h{3} à {2}h{4}", Description, DateDebut.Hour, DateFin.Hour, DateDebut.Minute, DateFin.Minute);
     }
 }

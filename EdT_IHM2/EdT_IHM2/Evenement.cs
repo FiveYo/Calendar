@@ -143,5 +143,14 @@ namespace EdT_IHM2
 
 
         public string DescriptionFinale => string.Format("{0} \n De {1}h{3} à {2}h{4}", Description, DateDebut.Hour, DateFin.Hour, DateDebut.Minute, DateFin.Minute);
+
+        public string Span
+        {
+            get
+            {
+                return String.Format("De {0}h{2} à {1}h{3}", DateDebut.Hour.ToString(), DateFin.Hour.ToString(), 
+                    DateDebut.Minute.ToString(), DateFin.Minute.ToString());
+            }
+        }
     }
 }

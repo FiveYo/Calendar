@@ -14,6 +14,12 @@ namespace EdT_IHM2
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
+            carousel.DayTapped += CarouselHeader_DayTapped;
+        }
+
+        private void CarouselHeader_DayTapped(object sender, EventArgs e)
+        {
+            //Navigation.PushAsync
         }
 
         protected override void OnAppearing()

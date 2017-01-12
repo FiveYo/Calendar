@@ -60,7 +60,7 @@
                     <RowDefinition Height="9*"/>
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
-            <Image Grid.Row="1" Grid.Column="0" x:Name="return_im" Source="flecheGauche.png" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Image>
+                <Image Grid.Row="1" Grid.Column="0" x:Name="return_im" Source="flecheGauche.png" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Image>
                 <Image  Grid.Row="1" Grid.Column="2" x:Name="modif_img" Source="penBlanc.png" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Image>
                 <Image  Grid.Row="1" Grid.Column="3" x:Name="delete_img" Source="poubelle.png" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Image>
             </Grid>
@@ -82,7 +82,7 @@
                                 <ListView  ItemsSource="{Binding Participant}">
                                     <ListView.ItemTemplate>
                                         <DataTemplate>
-                                            <TextCell Text="{Binding}"/>
+                                            <TextCell Text="{Binding}" TextColor="Black"/>
                                         </DataTemplate>
                                     </ListView.ItemTemplate>
                                 </ListView>

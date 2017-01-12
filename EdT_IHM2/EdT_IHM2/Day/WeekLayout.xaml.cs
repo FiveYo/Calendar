@@ -20,6 +20,9 @@ namespace EdT_IHM2.Day
         const double NBCOLUMN = 8.0;
         List<BoxView> bones;
         List<Label> scales;
+
+        public event EventHandler DayTapped;
+
         public WeekLayout()
         {
             InitializeComponent();
@@ -64,7 +67,22 @@ namespace EdT_IHM2.Day
 
             DrawScales();
             DrawBones();
+
+            //var tpg = new TapGestureRecognizer();
+            //tpg.Tapped += AbsLayout_Tapped;
+
+            //Days.GestureRecognizers.Add(tpg);
+
+            foreach (var item in DaysView.Children.Where(n => { return (n as DayHeader) != null; }))
+            {
+                (item as DayHeader).Tapped += (s, e) => DayTapped?.Invoke(s, e);
+            }
             
+        }
+
+        private void AbsLayout_Tapped(object sender, EventArgs e)
+        {
+            // Pour la création à une certaine date on regarde la position et dans quel colonne on est
         }
 
         private void DrawScales()
@@ -90,6 +108,10 @@ namespace EdT_IHM2.Day
                 DrawEvent(ev);
             }
             CheckIntersectionEvent();
+            foreach (var ev in events)
+            {
+                ev.PropertyChanged += Event_PropertyChanged;
+            }
         }
 
         private void DrawEvent(WeekEvent ev)
@@ -148,12 +170,18 @@ namespace EdT_IHM2.Day
 
         private void Event_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            //WeekEvent ev = sender as WeekEvent;
-            //if (ev!=null)
-            //{
-            //    Days.Children.Remove(ev);
-            //    DrawEvent(ev);
-            //}
+            WeekEvent ev = sender as WeekEvent;
+            if(ev != null)
+            {
+                var position = new Rectangle(
+                    ((double)ev.start.DayOfWeek + 1) / (NBCOLUMN - 1),
+                    ev.start.Hour * HEIGHT + ev.start.Minute,
+                    1.0 / NBCOLUMN,
+                    (ev.end - ev.start).TotalMinutes
+                );
+                AbsoluteLayout.SetLayoutBounds(ev, position);
+                AbsoluteLayout.SetLayoutFlags(ev, AbsoluteLayoutFlags.WidthProportional | AbsoluteLayoutFlags.XProportional);
+            }
         }
 
         public async void ScrollTo(double X = 0, double Y = HDEPSHOW * HEIGHT, bool animated = false)

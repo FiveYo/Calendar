@@ -14,22 +14,13 @@ namespace EdT_IHM2
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            List<string> participants = new List<string>();
-            participants.Add("-ta maman");
-            participants.Add("-encore ta maman");
-            participants.Add("-encore ta maman");
-            participants.Add("-encore ta maman");
-            participants.Add("-encore ta maman");
-            participants.Add("-encore ta maman");
-            participants.Add("-encore ta maman");
-            participants.Add("-encore ta maman");
-            participants.Add("-encore ta maman");
-            participants.Add("-encore ta maman");
-            participants.Add("-encore ta maman");
-            participants.Add("-encore ta maman");
-            participants.Add("-encore ta maman");
-            BindingContext = new Evenement("Lundi 29 Fevrier", new DateTime(2016, 03, 12, 12, 30, 00), new DateTime(2016, 03, 12, 13, 30, 00), "On baise ta maman ", "Chez ta maman ", participants, "SalePute");
+        }
 
+        public DetailsEvents(Evenement ev)
+        {
+            InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
+            BindingContext = ev;
             var tapImage1 = new TapGestureRecognizer();
             var tapImage2 = new TapGestureRecognizer();
             var tapImage3 = new TapGestureRecognizer();
@@ -43,21 +34,22 @@ namespace EdT_IHM2
             delete_img.GestureRecognizers.Add(tapImage3);
         }
         async void ToDelete(object sender, EventArgs e)
-             
         {
             // handle the tap  
-            var answer = await DisplayAlert("Attention", "Vous êtes sûr de vouloir supprimer cet évenement de votre emploi du temps ?", "Oui", "Non");
+            var answer = await DisplayAlert("Attention", "Vous êtes sûr de vouloir supprimer cet évenement de votre emploi du temps ?", "Non", "Oui");
+            if (!answer)
+            {
+                await Navigation.PopAsync();
+            }
         }
-        void ToReturn(object sender, EventArgs e)
+        async void ToReturn(object sender, EventArgs e)
 
         {
-            // handle the tap  
-            DisplayAlert("TODO", "A REDIRIGER SUR AUTRE PAGE", "OK");
+            await Navigation.PopAsync();
         }
 
         void ToModify(object sender, EventArgs e)
-
-        {
+        { 
             // handle the tap  
             DisplayAlert("TODO", "A REDIRIGER PAGE MODIFICATION", "OK");
         }

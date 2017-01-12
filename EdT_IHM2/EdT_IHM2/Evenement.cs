@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace EdT_IHM2
 {
@@ -14,7 +15,9 @@ namespace EdT_IHM2
         List<string> participants = new List<string>();
         string date, description, lieu, note;
         DateTime dateDebut, dateFin;
-        public Evenement(string Date, DateTime DateDebut, DateTime DateFin, string Description, string Lieu, List<string> Participants, string Note)
+        private Color color;
+
+        public Evenement(string Date, DateTime DateDebut, DateTime DateFin, string Description, string Lieu, List<string> Participants, string Note, Color color)
         {
             this.date = Date;
             this.dateDebut = DateDebut;
@@ -23,6 +26,7 @@ namespace EdT_IHM2
             this.lieu = Lieu;
             this.participants = Participants;
             this.note = Note;
+            this.color = color;
         }
         public string Date
         {
@@ -40,6 +44,22 @@ namespace EdT_IHM2
             }
         }
 
+        public Color Color
+        {
+            get
+            {
+                return color;
+            }
+            set
+            {
+                if (color != value)
+                {
+                    color = value;
+                    OnPropertyChanged("Color");
+                }
+            }
+        }
+        
         public DateTime DateDebut
         {
             get
@@ -86,7 +106,7 @@ namespace EdT_IHM2
                 }
             }
         }
-
+        
         public string Lieu
         {
             get
@@ -141,7 +161,7 @@ namespace EdT_IHM2
             }
         }
 
-
+        
         public string DescriptionFinale => string.Format("{0} \n De {1}h{3} à {2}h{4}", Description, DateDebut.Hour, DateFin.Hour, DateDebut.Minute, DateFin.Minute);
 
         public string Span

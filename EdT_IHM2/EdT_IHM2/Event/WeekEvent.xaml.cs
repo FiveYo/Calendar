@@ -13,6 +13,7 @@ namespace EdT_IHM2.Event
     {
         const double alphaMult = 0.6;
         private Color _colorTransparent;
+
         public Color color
         {
             get
@@ -37,6 +38,16 @@ namespace EdT_IHM2.Event
             this.color = color;
             this.start = start;
             this.end = end;
+            _colorTransparent = color.MultiplyAlpha(alphaMult);
+        }
+
+        public WeekEvent(Evenement ev)
+        {
+            InitializeComponent();
+            BindingContext = ev;
+            this.color = ev.Color;
+            this.start = ev.DateDebut;
+            this.end = ev.DateFin;
             _colorTransparent = color.MultiplyAlpha(alphaMult);
         }
 

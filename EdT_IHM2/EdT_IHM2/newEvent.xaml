@@ -83,7 +83,7 @@
             </sys:DateTime>
           </DatePicker.MaximumDate>
         </DatePicker>
-        <TimePicker x:Name="heureDebut" />
+        <TimePicker x:Name="heureDebut" /><!-- Language="fr-FR" />-->
       </StackLayout>
       <StackLayout x:Name="dateFinStack" Orientation="Horizontal">
         <Label Text="Fin" />
@@ -104,7 +104,7 @@
             </sys:DateTime>
           </DatePicker.MaximumDate>
         </DatePicker>
-        <TimePicker x:Name="heureFin" />
+        <TimePicker x:Name="heureFin" /><!--Language="fr-FR" />-->
       </StackLayout>
     
     <Entry x:Name="description" Placeholder="Description" />

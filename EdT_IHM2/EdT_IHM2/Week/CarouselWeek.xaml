@@ -3,7 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EdT_IHM2.CarouselWeek"
              xmlns:local="clr-namespace:EdT_IHM2.Day">
-    <ContentView.Content>
-        <local:WeekLayout x:Name="weekLayout"/>
+  <ContentView.Content>
+    <StackLayout>
+      <StackLayout Orientation="Horizontal">
+        <Button x:Name="nextweek" Text="Précédent" Clicked="previousWeek" />
+        <Button x:Name="previousweek" Text=" Suivant " HorizontalOptions="EndAndExpand" Clicked="nextWeek"/>
+      </StackLayout>
+      <local:WeekLayout x:Name="weekLayout"/>
+    </StackLayout>
     </ContentView.Content>
 </ContentView>

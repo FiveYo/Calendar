@@ -65,18 +65,7 @@ namespace EdT_IHM2.Day
                 scales.Add(label);
             }
 
-            DrawScales();
-            DrawBones();
-
-            //var tpg = new TapGestureRecognizer();
-            //tpg.Tapped += AbsLayout_Tapped;
-
-            //Days.GestureRecognizers.Add(tpg);
-
-            foreach (var item in DaysView.Children.Where(n => { return (n as DayHeader) != null; }))
-            {
-                (item as DayHeader).Tapped += (s, e) => DayTapped?.Invoke(s, e);
-            }
+            
             
         }
 
@@ -101,8 +90,12 @@ namespace EdT_IHM2.Day
             }
         }
 
-        public void SetEvents(List<WeekEvent> events)
+        public void SetEvents(List<WeekEvent> events, DateTime firstDay)
         {
+            Days.Children.Clear();
+            DrawHeader(firstDay);
+            DrawScales();
+            DrawBones();
             foreach (var ev in events)
             {
                 DrawEvent(ev);
@@ -114,14 +107,58 @@ namespace EdT_IHM2.Day
             }
         }
 
+        private void DrawHeader(DateTime firstDay)
+        {
+            var day_tmp = firstDay;
+            DaysView.Children.Clear();
+            DaysView.Children.Add(new Label { Text = "s" + (firstDay.DayOfYear / 7 + 1).ToString() }, 0, 0);
+            for(int i = 1; i < 8; i++)
+            {
+                DaysView.Children.Add(
+                    new DayHeader
+                    {
+                        year = day_tmp.Year,
+                        month = day_tmp.Month,
+                        day = day_tmp.Day,
+                    }, i, 0
+                );
+               day_tmp = day_tmp.AddDays(1);
+            }
+            foreach (var item in DaysView.Children.Where(n => { return (n as DayHeader) != null; }))
+            {
+                (item as DayHeader).Tapped += (s, e) => DayTapped?.Invoke(s, e);
+            }
+        }
+
         private void DrawEvent(WeekEvent ev)
         {
-            var position = new Rectangle(
-                    ((double)ev.start.DayOfWeek + 1) / (NBCOLUMN - 1),
+            Rectangle position = new Rectangle();
+            if (ev.start.DayOfWeek == DayOfWeek.Sunday)
+            {
+                position = new Rectangle(
+                    1,
                     ev.start.Hour * HEIGHT + ev.start.Minute,
                     1.0 / NBCOLUMN,
                     (ev.end - ev.start).TotalMinutes
                 );
+            }
+            else
+            {
+                position = new Rectangle(
+                    ((double)ev.start.DayOfWeek - 2.0) / (NBCOLUMN - 1.0),
+                    ev.start.Hour * HEIGHT + ev.start.Minute,
+                    1.0 / NBCOLUMN,
+                    (ev.end - ev.start).TotalMinutes
+                );
+            }
+
+            //var position = new Rectangle(
+            //        ((double)ev.start.DayOfWeek + 1) / (NBCOLUMN - 1.0),
+            //        ev.start.Hour * HEIGHT + ev.start.Minute,
+            //        1.0 / NBCOLUMN,
+            //        (ev.end - ev.start).TotalMinutes
+            //    );
+
             AbsoluteLayout.SetLayoutBounds(ev, position);
             AbsoluteLayout.SetLayoutFlags(ev, AbsoluteLayoutFlags.WidthProportional | AbsoluteLayoutFlags.XProportional);
             Days.Children.Add(ev);

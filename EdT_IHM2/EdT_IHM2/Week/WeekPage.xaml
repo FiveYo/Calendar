@@ -5,7 +5,7 @@
              x:Class="EdT_IHM2.WeekPage">
     <ContentPage.Content>
         <StackLayout>
-            <local:Header/>
+            <local:Header x:Name="header"/>
             <local:CarouselWeek x:Name="carousel"/>
         </StackLayout>
     </ContentPage.Content>

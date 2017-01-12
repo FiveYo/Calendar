@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="EdT_IHM2.Day.DayPage"
-             xmlns:local="clr-namespace:EdT_IHM2">
+             x:Class="EdT_IHM2.Day.DayPage">
     <ContentPage.Content>
         <StackLayout>
-            <local:Header/>
+            <Label x:Name="jourChoisi"/>
+            <!--<local:Header/>-->
             <ScrollView>
                 <ListView ItemsSource="{Binding}" SeparatorVisibility="Default"
                       HasUnevenRows="True"  ItemSelected="ListView_ItemSelected">
@@ -22,6 +22,7 @@
                                         <RowDefinition Height="1"/>
                                     </Grid.RowDefinitions>
                                     <StackLayout Grid.Column="0">
+                                        <Label x:Name="dateJour"/>
                                         <Label Text="{Binding Description}"/>
                                         <Label Text="{Binding Note}"/>
                                     </StackLayout>

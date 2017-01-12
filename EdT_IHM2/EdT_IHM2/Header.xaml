@@ -2,29 +2,17 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="EdT_IHM2.Header">
     <ContentView.Content>
         <!--<StackLayout>-->
-            <Grid HeightRequest="50">
-                <Grid.ColumnDefinitions>
-                    <!-- L'étoile est pour la proportionnalité, sans l'étoile je dois savoir la taille de l'écran -->
-                    <ColumnDefinition Width="7*"/>
-                    <ColumnDefinition Width="3*"/>
-                    <ColumnDefinition Width="3*"/>
-                </Grid.ColumnDefinitions>
-                <!--<ListView BindingContext="Test"/>-->
-                <Picker x:Name="Temps" IsVisible="False"  Title="Choix Temps" Grid.Column="0">
-                    <Picker.Items>
-                        <x:String>Semaine</x:String>
-                        <x:String>Mois</x:String>
-                    </Picker.Items>
-                </Picker>
-            <Label Text="Temps" Grid.Column="0"/>
-            <Image x:Name="img" Source="trash3.png" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Column="1"></Image>
-                <Picker x:Name="Paramètres"  HorizontalOptions="StartAndExpand" Title="Paramètres" Grid.Column="2">
-                    <Picker.Items>
-                        <x:String>Compte</x:String>
-                        <x:String>Paramètres</x:String>
-                    </Picker.Items>
-                </Picker>
-            </Grid>
+        <Grid HeightRequest="70" BackgroundColor="Blue">
+            <Grid.ColumnDefinitions>
+                <!-- L'étoile est pour la proportionnalité, sans l'étoile je dois savoir la taille de l'écran -->
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Label ClassId="0" Text="Semaine" x:Name="temps" Grid.Column="0"/>
+            <Image ClassId="2" x:Name="img" Source="poubelle.png" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Column="1"></Image>
+            <Image ClassId="1" x:Name="param" Source="parameter.png" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"  Grid.Column="2"/>
+        </Grid>
         <!--</StackLayout>-->
     </ContentView.Content>
 </ContentView>

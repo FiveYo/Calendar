@@ -28,19 +28,21 @@ namespace EdT_IHM2.Day
         public DayPage()
         {
             InitializeComponent();
-            NavigationPage.SetHasNavigationBar(this, false);
+            //NavigationPage.SetHasNavigationBar(this, false);
             //context = 
         }
 
         public DayPage(ObservableCollection<Evenement> list, DateTime day)
         {
             InitializeComponent();
-            NavigationPage.SetHasNavigationBar(this, false);
+            //NavigationPage.SetHasNavigationBar(this, false);
             ObservableCollection<Evenement> context_tmp = new ObservableCollection<Evenement>();
             foreach (var item in list.Where(i => { return i.DateDebut.Day == day.Day && i.DateDebut.Month == day.Month && i.DateDebut.Year == day.Year; }))
             {
                 context_tmp.Add(item);
             }
+            String jour = (day.Date).ToString();
+            jourChoisi.Text = jour;
             context = context_tmp;
         }
 

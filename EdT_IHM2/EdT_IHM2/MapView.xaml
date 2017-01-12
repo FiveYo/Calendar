@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EdT_IHM2.MapView">
+    <StackLayout>
+        <Grid HeightRequest="50" BackgroundColor="Blue">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="9*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Image Grid.Row="1" Grid.Column="0" x:Name="return_im" Source="flecheGauche.png" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Image>
+        </Grid>
+        <Label Text="Carte" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Large"/>
+        <StackLayout VerticalOptions="EndAndExpand">
+            <Label Text="ICI" HorizontalOptions="Center" TextColor="Black" FontSize="Large"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

@@ -70,7 +70,7 @@ namespace EdT_IHM2
                 DateDebut = new DateTime(yearStart, monthStart, dayStart, hourStart, minStart, secStart);
                 DateFin = new DateTime(yearEnd, monthEnd, dayEnd, hourEnd, minEnd, secEnd);
             }
-            Evenement ev = new Evenement(Date, DateDebut, DateFin, Description, Lieu, Participants, Note, Color.Yellow);
+            Evenement ev = new Evenement(Date, DateDebut, DateFin, Description, Lieu, Participants, Note, false, "0", Color.Yellow);
             Debug.WriteLine(ev);
         }
     }

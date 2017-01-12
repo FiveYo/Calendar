@@ -53,6 +53,10 @@ namespace EdT_IHM2
             // handle the tap  
             DisplayAlert("TODO", "A REDIRIGER PAGE MODIFICATION", "OK");
         }
+        async void ToMap(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new MapView());
+        }
 
     }
 }

@@ -140,7 +140,7 @@
         </Picker.Items>
       </Picker>
     </StackLayout>
-  <Button Text="Créer l'événement" HorizontalOptions="Center" Clicked="create_onClick" Margin="10"/>
+  <Button x:Name="validerBtn" Text="Créer l'événement" HorizontalOptions="Center" Clicked="create_onClick" Margin="10"/>
 
   </StackLayout>
 </ContentPage>

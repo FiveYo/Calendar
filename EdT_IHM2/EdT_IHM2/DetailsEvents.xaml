@@ -3,50 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EdT_IHM2.DetailsEvents">
     <ContentPage.Content>
-        <!--<Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*" />
-                <RowDefinition Height="3*" />
-                <RowDefinition Height="3*" />
-                <RowDefinition Height="2*" />
-                <RowDefinition Height="3*" />
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height ="3*"/>
-                    <RowDefinition Height ="1*"/>
-                </Grid.RowDefinitions>
-                <Frame Grid.Row="0" BackgroundColor="Green">
-                    <Label Text="{Binding Date}"  />
-                </Frame>
-                <Label Grid.Row="1"  Text="{Binding DescriptionFinale}"/>
-            </Grid>
-            <Grid Grid.Row="2" BackgroundColor="Red">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height ="1*"/>
-                    <RowDefinition Height ="3*"/>
-                </Grid.RowDefinitions>
-                <Label Text="Qui participe ? "  Grid.Row="0" HorizontalOptions="Center"/>
-                <Label Text="{Binding Participant}"  Grid.Row="1"/>
-            </Grid>
-            <Grid Grid.Row="3" BackgroundColor="Blue">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height ="1*"/>
-                    <RowDefinition Height ="3*"/>
-                </Grid.RowDefinitions>
-                <Label Text="où ça ?"  Grid.Row="0" HorizontalOptions="Center"/>
-                <Label Text="{Binding Lieu}"  Grid.Row="1"/>
-
-            </Grid>
-            <Grid Grid.Row="4" BackgroundColor="Yellow">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height ="1*"/>
-                    <RowDefinition Height ="3*"/>
-                </Grid.RowDefinitions>
-                <Label Text="IMPORTANT"  Grid.Row="0" HorizontalOptions="Center"/>
-                <Label Text="{Binding Note}"  Grid.Row="1"/>
-            </Grid>
-        </Grid>-->
         <StackLayout >
             <Grid HeightRequest="50" BackgroundColor="Silver">
                 <Grid.ColumnDefinitions>
@@ -59,23 +15,25 @@
                 <Image  Grid.Column="2" x:Name="img3" Source="penBlanc.png" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Image>
                 <Image  Grid.Column="3" x:Name="img2" Source="poubelle.png" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Image>
             </Grid>
-            <ScrollView>
-                <StackLayout  Spacing="2" x:Name="layout" Padding="10">
-                    <Frame  BackgroundColor="Silver" >
+            <ScrollView VerticalOptions="Fill">
+                <StackLayout Spacing="2" x:Name="layout">
+                    <Frame BackgroundColor="Silver" >
                         <StackLayout >
                             <Label Text="{Binding Date}" HorizontalOptions="Center"/>
                             <BoxView  BackgroundColor="Black" HeightRequest="1"  WidthRequest="1000" HorizontalOptions="FillAndExpand"/>
                             <Label Text="{Binding DescriptionFinale}" HorizontalOptions="Center"/>
                         </StackLayout>
                     </Frame>
-                    <Frame  BackgroundColor="Silver" >
+                    <Frame BackgroundColor="Silver" >
                         <StackLayout>
                             <Label Text="Qui participe ?? " HorizontalOptions="Center"/>
                             <BoxView  BackgroundColor="Black" HeightRequest="1"  WidthRequest="1000" />
-                            <ListView  ItemsSource="{Binding Participant}">
+                            <ListView  ItemsSource="{Binding Participant}" HasUnevenRows="True" VerticalOptions="Center">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
-                                        <TextCell Text="{Binding}"/>
+                                        <ViewCell>
+                                            <Label Text="{Binding}"/>
+                                        </ViewCell>
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
                             </ListView>

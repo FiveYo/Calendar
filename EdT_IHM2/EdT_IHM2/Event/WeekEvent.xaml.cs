@@ -45,4 +45,14 @@ namespace EdT_IHM2.Event
             color = _colorTransparent;
         }
     }
+    public class WeekEventSelectedEventArgs : EventArgs
+    {
+        public readonly WeekEvent selected;
+
+        public WeekEventSelectedEventArgs(WeekEvent selected)
+        {
+            this.selected = selected;
+        }
+
+    }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EdT_IHM2.Day;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,7 +18,7 @@ namespace EdT_IHM2
 
         async internal void GoToDetails(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new DetailsEvents());
+            await Navigation.PushAsync(new DayPage());
         }
     }
 }

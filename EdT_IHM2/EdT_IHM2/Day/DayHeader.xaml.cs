@@ -63,10 +63,17 @@ namespace EdT_IHM2.Day
         //    //set { SetValue(SubjectsProperty, value); }
         //}
 
+        public event EventHandler Tapped;
+
         public DayHeader()
         {
             InitializeComponent();
             DateChanged += DayView_DateChanged;
+
+            var tpg = new TapGestureRecognizer();
+            tpg.Tapped += (s,e) => Tapped?.Invoke(this,e);
+
+            GestureRecognizers.Add(tpg);
         }
 
         private void DayView_DateChanged(object sender, EventArgs e)

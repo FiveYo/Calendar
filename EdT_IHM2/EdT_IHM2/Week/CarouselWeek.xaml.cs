@@ -13,6 +13,8 @@ namespace EdT_IHM2
 {
     public partial class CarouselWeek : ContentView
     {
+        public event EventHandler DayTapped;
+
         static List<WeekEvent> events = new List<WeekEvent>
         {
             new WeekEvent(Color.Blue, new DateTime(2017,1,1,8,0,0), new DateTime(2017,1,1,9,0,0)),
@@ -36,6 +38,7 @@ namespace EdT_IHM2
             InitializeComponent();
             week = 50;
             weekLayout.SetEvents(events);
+            weekLayout.DayTapped += (s, e) => DayTapped?.Invoke(s,e);
                 //day.subjects = subjects.Where(s => s.start.Day == day.day).ToList();
         }
 

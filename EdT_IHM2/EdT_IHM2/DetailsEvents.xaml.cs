@@ -10,6 +10,7 @@ namespace EdT_IHM2
 {
     public partial class DetailsEvents : ContentPage
     {
+        Evenement Event;
         public DetailsEvents()
         {
             InitializeComponent();
@@ -18,6 +19,7 @@ namespace EdT_IHM2
 
         public DetailsEvents(Evenement ev)
         {
+            Event = ev;
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
             BindingContext = ev;
@@ -48,9 +50,9 @@ namespace EdT_IHM2
             await Navigation.PopAsync();
         }
 
-        async void ToModify(object sender, EventArgs e,Evenement ev)
+        async void ToModify(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new newEvent(ev));
+            await Navigation.PushAsync(new newEvent(Event));
         }
         async void ToMap(object sender, EventArgs e)
         {

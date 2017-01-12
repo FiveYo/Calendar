@@ -48,10 +48,9 @@ namespace EdT_IHM2
             await Navigation.PopAsync();
         }
 
-        void ToModify(object sender, EventArgs e)
-        { 
-            // handle the tap  
-            DisplayAlert("TODO", "A REDIRIGER PAGE MODIFICATION", "OK");
+        async void ToModify(object sender, EventArgs e,Evenement ev)
+        {
+            await Navigation.PushAsync(new newEvent(ev));
         }
         async void ToMap(object sender, EventArgs e)
         {

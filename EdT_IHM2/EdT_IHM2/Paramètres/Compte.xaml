@@ -2,25 +2,44 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EdT_IHM2.Paramètres.Compte">
-    <ContentPage.Content>
-        <StackLayout>
-            <Grid HeightRequest="50">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="5*"/>
-                    <ColumnDefinition Width="95*"/>
-                </Grid.ColumnDefinitions>
-                <Switch Grid.Column="0"/>
-                <Label IsToggled="True" Text="qschroter@gmail.com" VerticalOptions="Center" Grid.Column="1"/>
-            </Grid>
-            <Grid HeightRequest="50">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="5*"/>
-                    <ColumnDefinition Width="95*"/>
-                </Grid.ColumnDefinitions>
-                <Switch IsToggled="True" Grid.Column="0"/>
-                <Label Text="qschroter@insa-lyon.fr" VerticalOptions="Center" Grid.Column="1"/>
-            </Grid>
-        </StackLayout>
-
+    <ContentPage.Content >
+        <Grid Margin="20">
+            <StackLayout Padding="20" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <Label FontSize="Medium" FontAttributes="Bold" Text="Choisissez les comptes que vous souhaitez garder"/>
+                <BoxView HeightRequest="1" Color="Silver"/>
+                <Grid HeightRequest="50">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="25*"/>
+                        <ColumnDefinition Width="95*"/>
+                    </Grid.ColumnDefinitions>
+                    <Switch Grid.Column="0" IsToggled="True" />
+                    <Label Text="totor@gmail.com" VerticalOptions="Center" Grid.Column="1"/>
+                </Grid>
+                <Grid HeightRequest="50">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="25*"/>
+                        <ColumnDefinition Width="95*"/>
+                    </Grid.ColumnDefinitions>
+                    <Switch IsToggled="True" Grid.Column="0"/>
+                    <Label Text="qtriad@insa-lyon.fr" VerticalOptions="Center" Grid.Column="1"/>
+                </Grid>
+                <Grid HeightRequest="50">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="25*"/>
+                        <ColumnDefinition Width="95*"/>
+                    </Grid.ColumnDefinitions>
+                    <Switch Grid.Column="0" IsToggled="True" />
+                    <Label Text="tkspo@gmail.com" VerticalOptions="Center" Grid.Column="1"/>
+                </Grid>
+                <Grid HeightRequest="50">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="25*"/>
+                        <ColumnDefinition Width="95*"/>
+                    </Grid.ColumnDefinitions>
+                    <Switch IsToggled="False" Grid.Column="0"/>
+                    <Label Text="qdfead@insa-lyon.fr" VerticalOptions="Center" Grid.Column="1"/>
+                </Grid>
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

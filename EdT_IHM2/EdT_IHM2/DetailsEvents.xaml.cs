@@ -20,28 +20,46 @@ namespace EdT_IHM2
             participants.Add("-encore ta maman");
             participants.Add("-encore ta maman");
             participants.Add("-encore ta maman");
+            participants.Add("-encore ta maman");
+            participants.Add("-encore ta maman");
+            participants.Add("-encore ta maman");
+            participants.Add("-encore ta maman");
+            participants.Add("-encore ta maman");
+            participants.Add("-encore ta maman");
+            participants.Add("-encore ta maman");
+            participants.Add("-encore ta maman");
             BindingContext = new Evenement("Lundi 29 Fevrier", new DateTime(2016, 03, 12, 12, 30, 00), new DateTime(2016, 03, 12, 13, 30, 00), "On baise ta maman ", "Chez ta maman ", participants, "SalePute");
 
             var tapImage1 = new TapGestureRecognizer();
             var tapImage2 = new TapGestureRecognizer();
+            var tapImage3 = new TapGestureRecognizer();
             //Binding events  
-            tapImage1.Tapped += tapImage1_Tapped;
-            tapImage2.Tapped += Return;
+            tapImage1.Tapped += ToReturn;
+            tapImage2.Tapped += ToModify;
+            tapImage3.Tapped += ToDelete;
             //Associating tap events to the image buttons  
-            img2.GestureRecognizers.Add(tapImage1);
-            img.GestureRecognizers.Add(tapImage2);
+            return_im.GestureRecognizers.Add(tapImage1);
+            modif_img.GestureRecognizers.Add(tapImage2);
+            delete_img.GestureRecognizers.Add(tapImage3);
         }
-        async void tapImage1_Tapped(object sender, EventArgs e)
+        async void ToDelete(object sender, EventArgs e)
              
         {
             // handle the tap  
             var answer = await DisplayAlert("Attention", "Vous êtes sûr de vouloir supprimer cet évenement de votre emploi du temps ?", "Oui", "Non");
         }
-        void Return(object sender, EventArgs e)
+        void ToReturn(object sender, EventArgs e)
 
         {
             // handle the tap  
-            DisplayAlert("Alert", "This is an image button", "OK");
+            DisplayAlert("TODO", "A REDIRIGER SUR AUTRE PAGE", "OK");
+        }
+
+        void ToModify(object sender, EventArgs e)
+
+        {
+            // handle the tap  
+            DisplayAlert("TODO", "A REDIRIGER PAGE MODIFICATION", "OK");
         }
 
     }

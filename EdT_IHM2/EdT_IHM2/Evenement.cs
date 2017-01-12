@@ -11,14 +11,15 @@ namespace EdT_IHM2
     public class Evenement : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-
-        string date, description, heureDebut, heureFin, lieu, participants, note;
-        public Evenement(string Date , string Description, string HeureDebut, string HeureFin, string Lieu, string Participants, string Note)
+        List<string> participants = new List<string>();
+        string date, description, heureDebut, heureFin, lieu, note;
+        DateTime dateDebut, dateFin;
+        public Evenement(string Date, DateTime DateDebut, DateTime DateFin, string Description, string Lieu, List<string> Participants, string Note)
         {
             this.date = Date;
+            this.dateDebut = DateDebut;
+            this.dateFin = DateFin;
             this.description = Description;
-            this.heureFin = HeureFin;
-            this.heureDebut = HeureDebut;
             this.lieu = Lieu;
             this.participants = Participants;
             this.note = Note;
@@ -38,6 +39,38 @@ namespace EdT_IHM2
                 }
             }
         }
+
+        public DateTime DateDebut
+        {
+            get
+            {
+                return dateDebut;
+            }
+            set
+            {
+                if (dateDebut != value)
+                {
+                    dateDebut = value;
+                    OnPropertyChanged("DateDebut");
+                }
+            }
+        }
+
+        public DateTime DateFin
+        {
+            get
+            {
+                return dateFin;
+            }
+            set
+            {
+                if (dateFin != value)
+                {
+                    dateFin = value;
+                    OnPropertyChanged("DateFin");
+                }
+            }
+        }
         public string Description
         {
             get
@@ -53,36 +86,7 @@ namespace EdT_IHM2
                 }
             }
         }
-        public string HeureFin
-        {
-            get
-            {
-                return heureFin;
-            }
-            set
-            {
-                if (heureFin != value)
-                {
-                    heureFin = value;
-                    OnPropertyChanged("HeureFin");
-                }
-            }
-        }
-        public string HeureDebut
-        {
-            get
-            {
-                return heureDebut;
-            }
-            set
-            {
-                if (heureDebut != value)
-                {
-                    heureDebut = value;
-                    OnPropertyChanged("HeureDebut");
-                }
-            }
-        }
+
         public string Lieu
         {
             get
@@ -98,7 +102,7 @@ namespace EdT_IHM2
                 }
             }
         }
-        public string Participant
+        public List<string> Participant
         {
             get
             {
@@ -128,7 +132,7 @@ namespace EdT_IHM2
                 }
             }
         }
-        protected virtual void OnPropertyChanged (string PropertyName)
+        protected virtual void OnPropertyChanged(string PropertyName)
         {
             var changed = PropertyName;
             if (changed != null)
@@ -138,6 +142,15 @@ namespace EdT_IHM2
         }
 
 
-        public string DescriptionFinale => string.Format("{0} \n {1} --> {2}", Description, HeureDebut, HeureFin);
+        public string DescriptionFinale => string.Format("{0} \n De {1}h{3} à {2}h{4}", Description, DateDebut.Hour, DateFin.Hour, DateDebut.Minute, DateFin.Minute);
+
+        public string Span
+        {
+            get
+            {
+                return String.Format("De {0}h{2} à {1}h{3}", DateDebut.Hour.ToString(), DateFin.Hour.ToString(), 
+                    DateDebut.Minute.ToString(), DateFin.Minute.ToString());
+            }
+        }
     }
 }

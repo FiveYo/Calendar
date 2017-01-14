@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="EdT_IHM2.Header">
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="EdT_IHM2.Header" HeightRequest="150">
     <ContentView.Content>
         <!--<StackLayout>-->
-        <Grid HeightRequest="70" BackgroundColor="Aqua">
+        <Grid HeightRequest="150" BackgroundColor="Silver">
             <Grid.ColumnDefinitions>
                 <!-- L'étoile est pour la proportionnalité, sans l'étoile je dois savoir la taille de l'écran -->
                 <ColumnDefinition Width="7*"/>
@@ -10,10 +10,10 @@
                 <ColumnDefinition Width="3*"/>
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
-            <Label ClassId="0" Text="Semaine" x:Name="temps" Grid.Column="0"/>
-            <Image ClassId="2" x:Name="img" Source="poubelle.png" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Column="1"></Image>
-            <Image ClassId="3" x:Name="imgPlus" Source="plus.png" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Column="2"></Image>
-            <Image ClassId="1" x:Name="param" Source="parameter.png" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"  Grid.Column="3"/>
+            <Label ClassId="0" Text="Semaine" x:Name="temps" Grid.Column="0" VerticalOptions="Center"/>
+            <!--<Image ClassId="2" x:Name="img" Source="poubelle.png" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="1" HeightRequest="100" Margin="10"></Image>-->
+            <Image ClassId="3" x:Name="imgPlus" Source="plus.png" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="2" HeightRequest="100" Margin="10"></Image>
+            <Image ClassId="1" x:Name="param" Source="parameter.png" VerticalOptions="Center" HorizontalOptions="Center"  Grid.Column="3" HeightRequest="100" Margin="10"/>
         </Grid>
         <!--</StackLayout>-->
     </ContentView.Content>

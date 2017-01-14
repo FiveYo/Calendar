@@ -41,7 +41,7 @@ namespace EdT_IHM2.Day
             {
                 context_tmp.Add(item);
             }
-            String jour = (day.Date).ToString();
+            String jour = (day.Date).ToString("dd/MM/yyyy");
             jourChoisi.Text = jour;
             context = context_tmp;
         }

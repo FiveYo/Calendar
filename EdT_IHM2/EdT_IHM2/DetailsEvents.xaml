@@ -4,7 +4,7 @@
              x:Class="EdT_IHM2.DetailsEvents">
     <ContentPage.Content>
         <StackLayout Spacing="0" BackgroundColor="Silver">
-            <Grid HeightRequest="50" BackgroundColor="Aqua">
+            <Grid HeightRequest="50" BackgroundColor="Gray">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="3*"/>

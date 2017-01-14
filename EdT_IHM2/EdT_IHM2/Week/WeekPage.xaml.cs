@@ -97,7 +97,7 @@ namespace EdT_IHM2
             }
             else if ((sender as View).ClassId == "3")
             {
-                //await Navigation.PushAsync(new newEvent());
+                await Navigation.PushAsync(new newEvent());
             }
         }
 

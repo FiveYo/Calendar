@@ -53,7 +53,7 @@ namespace EdT_IHM2
             //Binding events  
             tapImage.Tapped += (s, e) => DisplayPopUp?.Invoke(s, e);
             //Associating tap events to the image buttons 
-            img.GestureRecognizers.Add(tapImage);
+            //img.GestureRecognizers.Add(tapImage);
 
             // Choix semaine ou jour
             //var tgr = new TapGestureRecognizer();
